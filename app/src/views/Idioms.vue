@@ -1,28 +1,24 @@
 <template>
   <div class="home w-100">
     <div class="row w-90 d-flex justify-content-center">
-      <div
-        class="col-xxl-3 col-lg-4 col-md-6 col-xs-12"
-        v-for="(idiom, index) in $store.state.idioms"
-        :key="index"
-      >
-        <CardIdiom
-          :idiom="idiom"
-          :index="index"
-        />
-      </div>
-    </div>
-    <div class="row d-flex mb-5 justify-content-center">
-      <div class="col-lg-4">
-        <button :class="'btn btn-primary w-100 ' + hideButton" @click="verMais">
-          Ver mais
-        </button>
+      <div class="row d-flex justify-content-center" ref="scrollComponent">
+        <div
+          class="col-xxl-3 col-lg-4 col-md-6 col-xs-12"
+          v-for="(idiom, index) in $store.state.idioms"
+          :key="index"
+        >
+          <CardIdiom
+            :idiom="idiom"
+            :index="index"
+          />
+        </div>
       </div>
     </div>
   </div>
 </template>
 <script>
 import CardIdiom from "@/components/CardIdiom.vue";
+import infScroll from "@/helpers/infScroll.js"
 
 export default {
   name: "Idioms",
@@ -32,25 +28,33 @@ export default {
 
   data() {
     return {
-      showIndex: 12,
-      hideButton: "",
+      page: 0,
+      defaultDispatchFunction: "fetchAllIdioms",
+      objectType: 'idioms'
     };
   },
 
   created() {
-    this.$store.dispatch("fetchIdiomResults");
-    this.hideButton =
-      this.$store.state.idioms.length <= 9 ? (this.hideButton = "d-none") : "";
+    infScroll.verMais(this)
+    console.log(this.$store.state)
+  },
+
+  mounted(){
+    window.addEventListener('scroll', () => infScroll.handleScroll(this))
+  },
+
+  unmounted(){
+    window.addEventListener('scroll', () => infScroll.handleScroll(this))
   },
 
   methods: {
-    verMais() {
-      console.log(this.$store.state.idioms.length);
-      this.showIndex = this.showIndex + 9;
-      if (this.showIndex > this.$store.state.idioms.length) {
-        this.hideButton = "d-none";
-      }
-    },
+    // verMais() {
+      // console.log(this.$store.state.idioms.length);
+      // this.showIndex = this.showIndex + 9;
+      // if (this.showIndex > this.$store.state.idioms.length) {
+        // this.hideButton = "d-none";
+      // }
+    // },
   },
 };
 </script>

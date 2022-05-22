@@ -19,8 +19,8 @@ class Idiom extends Migration
             $table->bigInteger('criadoPor')->unsigned();
             $table->foreign('criadoPor')->references('id')->on('users');
 
-            $table->string('expressao_pt');
-            $table->string('expressao_en');
+            $table->string('expressao_pt', 100);
+            $table->string('expressao_en', 100);
         }); 
     }
 

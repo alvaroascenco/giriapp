@@ -14,6 +14,7 @@
 
 <script>
 import CardGiria from "@/components/CardGiria.vue"
+import infScroll from "@/helpers/infScroll.js"
 
 export default {
   name: "Home",
@@ -24,34 +25,36 @@ export default {
 
   data(){
     return {
-      page: 0
+      page: 0,
+      defaultDispatchFunction: "fetchAllGirias",
+      objectType: 'girias'
     }
   },
 
   created() {
-    this.verMais()
+    infScroll.verMais(this)
     console.log(this.$store.state)
   },
 
   mounted(){
-    window.addEventListener('scroll', this.handleScroll)
+    window.addEventListener('scroll', () => infScroll.handleScroll(this))
   },
 
   unmounted(){
-    window.addEventListener('scroll', this.handleScroll)
+    window.addEventListener('scroll', () => infScroll.handleScroll(this))
   },
 
-  methods: {
-    verMais() {
-      this.$store.dispatch("fetchAllGirias", {page: this.page, overwrite: false});
-      this.page++
-      this.girias = this.$store.state.girias
-    },
-    async handleScroll(){
-      if(this.$refs.scrollComponent.getBoundingClientRect().bottom < window.innerHeight*1.01){
-        await this.verMais()
-      }
-    }
-  },
+  // methods: {
+    // verMais() {
+      // this.$store.dispatch("fetchAllGirias", {page: this.page, overwrite: false});
+      // this.page++
+      // this.girias = this.$store.state.girias
+    // },
+    // async handleScroll(){
+      // if(this.$refs.scrollComponent.getBoundingClientRect().bottom < window.innerHeight*1.01){
+        // await this.verMais()
+      // }
+    // }
+  // },
 };
 </script>

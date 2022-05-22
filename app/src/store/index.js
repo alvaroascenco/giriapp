@@ -14,11 +14,11 @@ export default createStore({
         return state.girias = payload.data
       state.girias = state.girias.concat(payload.data)
     },
-    assignIdioms(state, response){
-      console.log(response)
-      if(state.idioms.length == 0) 
-        return state.idioms = response
-      state.idioms = state.idioms.concat(response)
+    assignIdioms(state, payload){
+      console.log(payload)
+      if(state.idioms.length == 0 || payload.overwrite == true) 
+        return state.idioms = payload.data
+      state.idioms = state.idioms.concat(payload.data)
     }
   },
   actions: {
@@ -33,9 +33,10 @@ export default createStore({
         commit("assignGirias", {data: response.data, overwrite: payload.overwrite})
       );
     },
-    fetchAllIdioms({ commit }, page){
-      IdiomServices.getAllIdioms(page).then((response) => 
-      commit('assignIdioms', response))
+    fetchAllIdioms({ commit }, payload){
+      IdiomServices.getAllIdioms(payload.page).then((response) => 
+        commit("assignIdioms", {data: response.data, overwrite: payload.overwrite})
+      )
     },
     fetchIdiomResults({ commit }){
       IdiomServices.filterIdioms().then((response) => 

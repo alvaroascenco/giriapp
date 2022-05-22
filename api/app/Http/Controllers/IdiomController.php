@@ -42,8 +42,7 @@ class IdiomController extends Controller
        };
     }
     public function getIdioms(int $page){
-
-        $idioms = Idiom::offset($page*18)->limit(18)->get();;
+        $idioms = Idiom::offset($page*18)->limit(18)->get();
         $data = [];
         foreach($idioms  as $idiom){
             $data[] = [

@@ -32,6 +32,6 @@ Route::get('/giriasSearch/{str}', [GiriaController::class, 'filterGirias']);
 //retorna os dados de uma giria especifica no banco
 Route::get('/giria/{id}', [GiriaController::class, 'getGiria']);
 
-//retorna todos idioms encontrado no banco
+//retorna idioms encontrado no banco paginados
 Route::get('/idiom/{page}', [IdiomController::class, 'getIdioms']);
 

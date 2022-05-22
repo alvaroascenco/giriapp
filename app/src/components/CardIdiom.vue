@@ -66,7 +66,7 @@ export default {
 }
 
 .card-body {
-  height: 15vh;
+  height: 35vh;
 }
 
 .imgDiv{

@@ -24,8 +24,8 @@ class IdiomFactory extends Factory
     {
         return [
             'criadoPor'    => User::factory(),
-            'expressao_pt' => $this->faker->realText(),
-            'expressao_en' => $this->faker->realText()
+            'expressao_pt' => $this->faker->text(100),
+            'expressao_en' => $this->faker->text(100)
         ];
     }
 }
