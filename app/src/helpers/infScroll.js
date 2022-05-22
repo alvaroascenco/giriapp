@@ -6,7 +6,7 @@ var infScroll = {
     _vm[_vm.objectType] = _vm.$store.state[_vm.objectType];
   },  
   async handleScroll(_vm, dispatchFunction = _vm.defaultDispatchFunction){
-    if(_vm.$refs.scrollComponent.getBoundingClientRect().bottom < window.innerHeight*1.01){
+    if(_vm.$refs.scrollComponent.getBoundingClientRect().bottom < window.innerHeight*1.01 && _vm.$store.state.isFinishedGirias === false){
       await infScroll.verMais(_vm, dispatchFunction)
     }
   }

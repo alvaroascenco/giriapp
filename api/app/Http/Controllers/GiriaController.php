@@ -25,7 +25,11 @@ class GiriaController extends Controller
         foreach($girias as $giria){
             $this->treatGiriaFields($giria);
         }
-        return $girias;
+        
+        $res = [];
+        $res['girias'] = $girias;
+        $res['isFinishedGirias'] = count($girias) < 18;
+        return $res;
     }
 
     public function getGiria($id){

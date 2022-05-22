@@ -5,11 +5,14 @@ import IdiomServices from "../services/IdiomServices";
 export default createStore({
   state: {
     girias: [],
+    isFinishedGirias: false,
     idioms: [],
+    isFinishedIdioms: false
   },
   mutations: {
     assignGirias(state, payload) {
       console.log(payload)
+      state.isFinishedGirias = payload.isFinishedGirias
       if(state.girias.length == 0 || payload.overwrite == true) 
         return state.girias = payload.data
       state.girias = state.girias.concat(payload.data)
@@ -24,13 +27,13 @@ export default createStore({
   actions: {
     fetchAllGirias({ commit }, payload){
       GiriaServices.getAllGirias(payload.page).then((response) =>
-        commit("assignGirias", {data: response.data, overwrite: payload.overwrite})
+        commit("assignGirias", {data: response.data.girias, overwrite: payload.overwrite, isFinishedGirias: response.data.isFinishedGirias})
       );
     },
     fetchGiriaResults({ commit }, payload) {
       console.log(payload.overwrite)
       GiriaServices.filterGirias(payload.input).then((response) =>
-        commit("assignGirias", {data: response.data, overwrite: payload.overwrite})
+        commit("assignGirias", {data: response.data.girias, overwrite: payload.overwrite, isFinishedGirias: response.data.isFinishedGirias})
       );
     },
     fetchAllIdioms({ commit }, payload){

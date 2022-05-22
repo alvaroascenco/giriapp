@@ -34,7 +34,7 @@
               to="/about"
               class="nav-link text-white fs-5 efeitoUnderline"
               href="#"
-              >Como enviar conteúdo</router-link
+              >Informações</router-link
             >
           </li>
           <li class="nav-item mx-2">
@@ -84,6 +84,9 @@ export default {
       if (this.$route.name == "Idioms") return "bg-aquaGreen";
       else return "bg-primary";
     },
+    defaultDispatchFunction() {
+      return this.$route.name == 'Idioms' ? "fetchIdiomResults" : "fetchGiriaResults"
+    }
   },
 };
 </script>

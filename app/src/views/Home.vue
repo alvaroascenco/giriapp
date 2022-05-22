@@ -9,6 +9,14 @@
         <CardGiria :giria="giria" />
       </div>
     </div>
+    <div v-if="!$store.state.isFinishedGirias" class="d-flex justify-content-center mb-5">
+      <div class="spinner-border text-primary" role="status">
+        <span class="sr-only"></span>
+      </div>
+    </div>
+    <div class="mb-5" v-else>
+      <hr>
+    </div>
   </div>
 </template>
 
