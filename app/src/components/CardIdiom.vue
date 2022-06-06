@@ -24,13 +24,21 @@ export default {
     idiom: Object,
     index: Number
   },
+  data(){
+    return {
+      isResized: false
+    }
+  },
   mounted() {
-    this.resizeFonts()
+    if(!this.isResized){
+      this.resizeFonts()
+    }
   },
   methods: {
     resizeFonts(){
       let en = document.getElementById(`en${this.index}`)
       let pt = document.getElementById(`pt${this.index}`)
+      if(en.clientHeight >= en.scrollHeight && pt.clientHeight >= pt.scrollHeight) return 
       let enFontsize = window.getComputedStyle(document.getElementById(`en${this.index}`)).fontSize
       let ptFontsize = window.getComputedStyle(document.getElementById(`pt${this.index}`)).fontSize
       enFontsize = enFontsize.slice(0, -2)
@@ -42,8 +50,8 @@ export default {
       while(pt.clientHeight < pt.scrollHeight){
         ptFontsize--
         document.getElementById(`pt${this.index}`).style.fontSize = `${ptFontsize}px`
-
       }
+      this.isResized = true
     }
   },
 };
@@ -58,7 +66,7 @@ export default {
   display: flex !important;
   justify-content: center;
   align-items: center;
-  font-size: 100px;
+  font-size: 50px;
 }
 
 .left {

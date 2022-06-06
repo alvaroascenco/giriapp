@@ -48,7 +48,12 @@ class GiriaController extends Controller
         foreach($girias as $giria){
             $this->treatGiriaFields($giria);
         }
-        return $girias;
+
+        //TODO: pagination
+        $res = [];
+        $res['girias'] = $girias;
+        $res['isFinishedGirias'] = true;
+        return $res;
     }
 
     public function newGiria(){

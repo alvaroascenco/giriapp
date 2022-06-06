@@ -19,12 +19,26 @@ export default createStore({
     },
     assignIdioms(state, payload){
       console.log(payload)
+      state.isFinishedIdioms = payload.data.isFinishedIdioms
       if(state.idioms.length == 0 || payload.overwrite == true) 
-        return state.idioms = payload.data
-      state.idioms = state.idioms.concat(payload.data)
+        return state.idioms = payload.data.idioms
+      state.idioms = state.idioms.concat(payload.data.idioms)
+    },
+    clearGirias(state){
+      return state.girias = []
+    },
+    clearIdioms(state){
+      return state.idioms = []
     }
   },
   actions: {
+    clearStoreState({ commit }, payload){
+      if(payload.objToClear == 'idioms'){
+        commit("clearGirias")
+      } else {
+        commit("clearIdioms")
+      }
+    },
     fetchAllGirias({ commit }, payload){
       GiriaServices.getAllGirias(payload.page).then((response) =>
         commit("assignGirias", {data: response.data.girias, overwrite: payload.overwrite, isFinishedGirias: response.data.isFinishedGirias})
@@ -41,9 +55,9 @@ export default createStore({
         commit("assignIdioms", {data: response.data, overwrite: payload.overwrite})
       )
     },
-    fetchIdiomResults({ commit }){
-      IdiomServices.filterIdioms().then((response) => 
-      commit('assignIdioms', response))
+    fetchIdiomResults({ commit }, payload){
+      IdiomServices.filterIdioms(payload.input).then((response) => 
+      commit('assignIdioms', {data: response.data, overwrite: payload.overwrite}))
     }
   },
   modules: {},

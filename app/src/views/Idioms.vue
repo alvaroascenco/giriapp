@@ -13,7 +13,15 @@
           />
         </div>
       </div>
-    </div>
+      <div v-if="!$store.state.isFinishedIdioms" class="d-flex justify-content-center mb-5">
+        <div class="spinner-border text--aquagreen" role="status">
+          <span class="sr-only"></span>
+        </div>
+      </div>
+      <div class="mb-5" v-else>
+        <hr>
+      </div>
+      </div>
   </div>
 </template>
 <script>
@@ -30,7 +38,8 @@ export default {
     return {
       page: 0,
       defaultDispatchFunction: "fetchAllIdioms",
-      objectType: 'idioms'
+      objectType: 'idioms',
+      defaultFinishedFlagInStore: "isFinishedIdioms"
     };
   },
 
@@ -58,3 +67,8 @@ export default {
   },
 };
 </script>
+<style>
+.text--aquagreen{
+  color: #00d37f;
+}
+</style>

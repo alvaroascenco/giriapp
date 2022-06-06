@@ -35,7 +35,8 @@ export default {
     return {
       page: 0,
       defaultDispatchFunction: "fetchAllGirias",
-      objectType: 'girias'
+      objectType: 'girias',
+      defaultFinishedFlagInStore: "isFinishedGirias"
     }
   },
 

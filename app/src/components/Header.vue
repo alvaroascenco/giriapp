@@ -26,6 +26,7 @@
               to="/"
               class="nav-link active text-white fs-5 efeitoUnderline"
               aria-current="page"
+              @click="clearStoreState('idioms')"
               >Página inicial</router-link
             >
           </li>
@@ -34,6 +35,7 @@
               to="/about"
               class="nav-link text-white fs-5 efeitoUnderline"
               href="#"
+              @click="clearStoreState()"
               >Informações</router-link
             >
           </li>
@@ -42,6 +44,7 @@
               to="/idioms"
               class="nav-link text-white fs-5 efeitoUnderline"
               href="#"
+              @click="clearStoreState('girias')"
               >Expressões Idiomáticas (inglês)</router-link
             >
           </li>
@@ -74,9 +77,12 @@ export default {
     search: function (evt) {
       console.log(evt)
       console.log(this.input.length)
-      if(this.input.length == 0) return this.$store.dispatch("fetchAllGirias", {page: 0, overwrite: true})
-      this.$store.dispatch("fetchGiriaResults", {input: this.input, overwrite: true});
+      if(this.input.length == 0) return this.$store.dispatch(this.defaultDispatchFunctionGeneral, {page: 0, overwrite: true})
+      this.$store.dispatch(this.defaultDispatchFunctionSearch, {input: this.input, overwrite: true});
     },
+    clearStoreState(objToClear){
+      this.$store.dispatch("clearStoreState", { objToClear: objToClear })
+    }
   },
 
   computed: {
@@ -84,8 +90,11 @@ export default {
       if (this.$route.name == "Idioms") return "bg-aquaGreen";
       else return "bg-primary";
     },
-    defaultDispatchFunction() {
+    defaultDispatchFunctionSearch() {
       return this.$route.name == 'Idioms' ? "fetchIdiomResults" : "fetchGiriaResults"
+    },
+    defaultDispatchFunctionGeneral(){
+      return this.$route.name == 'Idioms' ? "fetchAllIdioms" : "fetchAllGirias"
     }
   },
 };

@@ -35,3 +35,6 @@ Route::get('/giria/{id}', [GiriaController::class, 'getGiria']);
 //retorna idioms encontrado no banco paginados
 Route::get('/idiom/{page}', [IdiomController::class, 'getIdioms']);
 
+//retorna idioms filtrados do banco
+Route::get('/idiomSearch/{term}', [IdiomController::class, 'filterIdioms']);
+

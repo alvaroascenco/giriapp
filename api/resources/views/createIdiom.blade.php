@@ -6,8 +6,8 @@
       <section class="mb-10 w-full  lg:w-3/4 flex flex-col break-words bg-white sm:border-1 sm:rounded-md sm:shadow-sm sm:shadow-lg">
 
             <header class="font-semibold text-center bg-gray-200 text-gray-700 py-5 px-6 sm:py-6 sm:px-8 sm:rounded-t-md">
-                @if(isset($giriaToEdit)) Editar gíria traduzida
-                @else Cadastrar nova gíria traduzida
+                @if(isset($giriaToEdit)) Editar expressão em inglês
+                @else Cadastrar nova expressão em inglês
                 @endif
             </header>
 

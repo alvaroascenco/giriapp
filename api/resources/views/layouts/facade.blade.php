@@ -44,16 +44,16 @@
                                         class="no-underline text-gray-500 lg:text-2xl sm:text-sm hover:underline">Gírias catalogadas</a>
                                 </li>
                                 <li class="text-center py-3 border-b-2">
-                                    <a href="{{ route('idioms') }}"
-                                       class="no-underline text-gray-500 lg:text-2xl sm:text-sm hover:underline">Girias traduzidas catalogadas</a>
-                                </li>
-                                <li class="text-center py-3 border-b-2">
                                     <a href="/create"
                                        class="no-underline text-gray-500 lg:text-2xl sm:text-sm hover:underline">Catalogar gíria</a>
                                 </li>
                                 <li class="text-center py-3 border-b-2">
+                                    <a href="{{ route('idioms') }}"
+                                       class="no-underline text-gray-500 lg:text-2xl sm:text-sm hover:underline">Expressões em inglês catalogadas</a>
+                                </li>
+                                <li class="text-center py-3 border-b-2">
                                     <a href="/create/idiom"
-                                       class="no-underline text-gray-500 lg:text-2xl sm:text-sm hover:underline">Catalogar gíria traduzida</a>
+                                       class="no-underline text-gray-500 lg:text-2xl sm:text-sm hover:underline">Catalogar expressão em inglês</a>
                                 </li>
                                 <li class="text-center py-3 border-b-2">
                                     <a href="{{ route('logout') }}"
@@ -70,11 +70,11 @@
                             <a href="{{ route('home') }}"
                                class="no-underline text-gray-500 lg:text-2xl sm:text-sm hover:underline">Gírias catalogadas</a>
                             <a href="{{ route('idioms') }}"
-                               class="no-underline text-gray-500 lg:text-2xl sm:text-sm hover:underline">Girias traduzidas catalogadas</a>
+                               class="no-underline text-gray-500 lg:text-2xl sm:text-sm hover:underline">Expressões em inglês catalogadas</a>
                             <a href="/create"
                                class="no-underline text-gray-500 lg:text-2xl sm:text-sm hover:underline">Catalogar gíria</a>
                             <a href="/create/idiom"
-                               class="no-underline text-gray-500 lg:text-2xl sm:text-sm hover:underline">Catalogar gíria traduzida</a>
+                               class="no-underline text-gray-500 lg:text-2xl sm:text-sm hover:underline">Catalogar expressão em inglês</a>
                             <a href="{{ route('logout') }}"
                                class="no-underline text-gray-500 lg:text-2xl sm:text-sm hover:underline"
                                onclick="event.preventDefault();

@@ -14,7 +14,7 @@ export default {
   getAllIdioms(page){
     return apiClient.get(`/idiom/${page}`)
   },
-  filterIdioms() {
-    return apiClient.get("/idiom");
+  filterIdioms(str) {
+    return apiClient.get(`/idiomSearch/${str}`);
   },
 };
