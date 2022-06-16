@@ -53,7 +53,7 @@ export default {
   },
 
   unmounted(){
-    window.addEventListener('scroll', () => infScroll.handleScroll(this))
+    window.removeEventListener('scroll', () => infScroll.handleScroll(this))
   },
 
   methods: {

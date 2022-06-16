@@ -53,6 +53,7 @@
           <input
             class="form-control me-2"
             type="search"
+	    id="searchInput"
             placeholder="Pesquisar"
             aria-label="Search"
             @input="search($event)"

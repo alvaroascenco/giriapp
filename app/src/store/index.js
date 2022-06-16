@@ -7,8 +7,12 @@ export default createStore({
     girias: [],
     isFinishedGirias: false,
     idioms: [],
-    isFinishedIdioms: false
+    isFinishedIdioms: false,
   },
+    getters: {
+	giriasGetter: state => state.girias,
+	isFinishedGiriasGetter: state => state.isFinishedGirias
+    },
   mutations: {
     assignGirias(state, payload) {
       console.log(payload)

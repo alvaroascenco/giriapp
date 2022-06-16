@@ -23,6 +23,7 @@
 <script>
 import CardGiria from "@/components/CardGiria.vue"
 import infScroll from "@/helpers/infScroll.js"
+import { mapGetters } from 'vuex'
 
 export default {
   name: "Home",
@@ -39,18 +40,26 @@ export default {
       defaultFinishedFlagInStore: "isFinishedGirias"
     }
   },
-
+  computed: {
+      ...mapGetters({
+	  storeGiriasDone: 'isFinishedGiriasGetter'
+      })
+  },
+  watch: {
+      storeGiriasDone (newValue){
+	  if(newValue == true) this.page = 1
+      }
+  },
   created() {
     infScroll.verMais(this)
     console.log(this.$store.state)
   },
-
   mounted(){
     window.addEventListener('scroll', () => infScroll.handleScroll(this))
   },
 
   unmounted(){
-    window.addEventListener('scroll', () => infScroll.handleScroll(this))
+    window.removeEventListener('scroll', () => infScroll.handleScroll(this))
   },
 
   // methods: {
