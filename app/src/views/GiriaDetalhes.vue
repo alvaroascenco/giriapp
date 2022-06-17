@@ -24,7 +24,7 @@
             <img v-if="giria.imagem" :src="giria.imagem" alt="" />
             <img
               v-else
-              :src="`${$root.publicPath}noImg.png`"
+              :src="`${publicPath}noImg.png`"
               height="200"
               width="200"
               alt=""
@@ -59,7 +59,7 @@ export default {
   data() {
     return {
       giria: null,
-      publicPath: 'http://localhost:8000/storage/',
+      publicPath: process.env.BASE_URL,
     };
   },
 

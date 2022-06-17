@@ -1,7 +1,7 @@
 <template>
   <div class="home w-100">
     <div class="row w-90 d-flex justify-content-center">
-      <div class="row d-flex justify-content-center" ref="scrollComponent">
+      <div class="row d-flex justify-content-center" ref="scrollComponentIdioms">
         <div
           class="col-xxl-3 col-lg-4 col-md-6 col-xs-12"
           v-for="(idiom, index) in $store.state.idioms"

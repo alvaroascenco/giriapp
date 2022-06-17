@@ -1,6 +1,6 @@
 <template>
   <div class="home w-100">
-    <div class="row d-flex justify-content-center" ref="scrollComponent">
+    <div class="row d-flex justify-content-center" ref="scrollComponentHome">
       <div
         class="col-lg-4 col-md-6"
         v-for="(giria, index) in $store.state.girias"
