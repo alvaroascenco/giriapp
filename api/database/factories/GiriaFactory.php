@@ -39,8 +39,8 @@ class GiriaFactory extends Factory
             'local' => $generateLocal,
             'significados' => $generateSignificados,
             'etimologia' => $this->faker->realText(),
-            'imagem' => $this->faker->url(),
-            'videoId' => $this->faker->url(),
+            'imagem' => 'https://upload.wikimedia.org/wikipedia/commons/thumb/1/14/Landscape_Arnisee-region.JPG/1200px-Landscape_Arnisee-region.JPG',
+            'videoId' => 'ikNsOFE8AP4',
         ];
     }
 }

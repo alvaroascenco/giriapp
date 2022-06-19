@@ -68,6 +68,11 @@ class IdiomController extends Controller
                 'expressao_en' => $idiom->expressao_en
             ];
         }
+
+        $res = [];
+        $res['idioms'] = $idioms;
+        $res['isFinishedIdioms'] = true;
+        
         return $data;
     }
 

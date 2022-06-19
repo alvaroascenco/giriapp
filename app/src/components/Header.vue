@@ -79,6 +79,7 @@ export default {
       console.log(evt)
       console.log(this.input.length)
       if(this.input.length == 0) return this.$store.dispatch(this.defaultDispatchFunctionGeneral, {page: 0, overwrite: true})
+	if(this.input.length < 3) return 
       this.$store.dispatch(this.defaultDispatchFunctionSearch, {input: this.input, overwrite: true});
     },
     clearStoreState(objToClear){

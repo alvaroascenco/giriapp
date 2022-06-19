@@ -21,7 +21,7 @@
         </div>
         <div class="mt-5 col-sm-6">
           <div class="d-flex justify-content-center mb-5">
-            <img v-if="giria.imagem" :src="giria.imagem" alt="" />
+            <img v-if="giria.imagem" class="imgExample" :src="giria.imagem" alt="" />
             <img
               v-else
               :src="`${publicPath}noImg.png`"
@@ -79,3 +79,9 @@ export default {
   },
 };
 </script>
+<style scoped>
+  .imgExample{
+    max-height: 310px;
+    max-width: 600px;
+  }
+</style>
