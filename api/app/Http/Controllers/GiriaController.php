@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Support\Facades\Storage;
 use Illuminate\Http\Request;
 use App\Models\Giria;
+use App\Http\Requests\GiriaRequest;
 use Auth;
 
 
@@ -60,7 +61,7 @@ class GiriaController extends Controller
       return view('create');
     }
 
-    public function createGiria(Request $request){
+    public function createGiria(GiriaRequest $request){
 
         $giria = new Giria;
 
@@ -81,11 +82,7 @@ class GiriaController extends Controller
         $giria->significados = substr($significados, 0 ,-1);
 
         $giria->etimologia = isset($request->etimologia) ? $request->etimologia : null;
-        $giria->imagem = '';
-        if($request->hasFile('imagem')){
-            $imageFile = $request->file('imagem')->store('images');
-            $giria->imagem = $imageFile;
-        }
+        $giria->imagem = $request->imagem;
         if(!empty($request->url) && $explodedURL = explode('watch?v=', $request->url)){
             $giria->videoId = $explodedURL[1];
         }

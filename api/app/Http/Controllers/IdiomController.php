@@ -73,7 +73,7 @@ class IdiomController extends Controller
         $res['idioms'] = $idioms;
         $res['isFinishedIdioms'] = true;
         
-        return $data;
+        return $res;
     }
 
     public function updateIdiom(Request $request, $idiomId){

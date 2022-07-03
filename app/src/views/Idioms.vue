@@ -49,14 +49,18 @@ export default {
   },
 
   mounted(){
-    window.addEventListener('scroll', () => infScroll.handleScroll(this))
+    window.addEventListener('scroll', this.callableHandleScroll)
   },
 
   unmounted(){
-    window.removeEventListener('scroll', () => infScroll.handleScroll(this))
+    window.removeEventListener('scroll', this.callableHandleScroll)
   },
 
   methods: {
+      // js apis are weird man
+      callableHandleScroll(){
+	  infScroll.handleScroll(this)
+      }
     // verMais() {
       // console.log(this.$store.state.idioms.length);
       // this.showIndex = this.showIndex + 9;

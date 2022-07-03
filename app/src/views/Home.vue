@@ -48,21 +48,25 @@ export default {
   watch: {
       storeGiriasDone (newValue){
 	  if(newValue == true) this.page = 1
-      }
+      },
+    $route(){
+	console.log("saiu")
+	window.removeEventListener('scroll', this.callableHandleScroll)
+    }
   },
   created() {
     infScroll.verMais(this)
     console.log(this.$store.state)
   },
   mounted(){
-    window.addEventListener('scroll', () => infScroll.handleScroll(this))
+    window.addEventListener('scroll', this.callableHandleScroll)
   },
 
-  unmounted(){
-    window.removeEventListener('scroll', () => infScroll.handleScroll(this))
-  },
-
-  // methods: {
+  methods: {
+      // js apis are weird man
+      callableHandleScroll(){
+	  infScroll.handleScroll(this)
+      }
     // verMais() {
       // this.$store.dispatch("fetchAllGirias", {page: this.page, overwrite: false});
       // this.page++
@@ -73,6 +77,6 @@ export default {
         // await this.verMais()
       // }
     // }
-  // },
+  },
 };
 </script>

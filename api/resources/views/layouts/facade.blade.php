@@ -25,14 +25,14 @@
                         giriapi_
                     </a>
                 </div>
-                <nav class="space-x-4 text-blue-600 sm:text-sm">
+                <nav class="space-x-4 w-3/4 text-blue-600 sm:text-sm">
                     @guest
                         <a class="no-underline text-gray-500 lg:text-2xl sm:text-sm hover:underline" href="{{ route('login') }}">{{ __('Entrar') }}</a>
                         @if (Route::has('register'))
                             <a class="no-underline text-gray-500 lg:text-2xl sm:text-sm hover:underline" href="{{ route('register') }}">{{ __('Cadastre-se') }}</a>
                         @endif
                     @else
-                        <div id="hamburger--icon" onclick="toggleHamburger()" class="md:hidden mr-1 cursor-pointer space-y-2">
+                        <div id="hamburger--icon" onclick="toggleHamburger()" class="md:hidden mr-1 inline float-right cursor-pointer space-y-2">
                           <div class="w-8 h-0.5 bg-gray-600"></div>
                           <div class="w-8 h-0.5 bg-gray-600"></div>
                           <div class="w-8 h-0.5 bg-gray-600"></div>
@@ -66,17 +66,17 @@
                                 </li>
                             </ul>
                         </div>
-                        <div class="hidden md:block">
+                        <div class="hidden md:flex md:justify-between">
                             <a href="{{ route('home') }}"
-                               class="no-underline text-gray-500 lg:text-2xl sm:text-sm hover:underline">Gírias catalogadas</a>
+                               class="no-underline text-gray-500 lg:text-lg sm:text-sm hover:underline">Gírias catalogadas</a>
                             <a href="{{ route('idioms') }}"
-                               class="no-underline text-gray-500 lg:text-2xl sm:text-sm hover:underline">Expressões em inglês catalogadas</a>
+                               class="no-underline text-gray-500 lg:text-lg sm:text-sm hover:underline">Expressões em inglês catalogadas</a>
                             <a href="/create"
-                               class="no-underline text-gray-500 lg:text-2xl sm:text-sm hover:underline">Catalogar gíria</a>
+                               class="no-underline text-gray-500 lg:text-lg sm:text-sm hover:underline">Catalogar gíria</a>
                             <a href="/create/idiom"
-                               class="no-underline text-gray-500 lg:text-2xl sm:text-sm hover:underline">Catalogar expressão em inglês</a>
+                               class="no-underline text-gray-500 lg:text-lg sm:text-sm hover:underline">Catalogar expressão em inglês</a>
                             <a href="{{ route('logout') }}"
-                               class="no-underline text-gray-500 lg:text-2xl sm:text-sm hover:underline"
+                               class="no-underline text-gray-500 lg:text-lg sm:text-sm hover:underline"
                                onclick="event.preventDefault();
                                     // document.getElementById('logout-form').submit();">{{ __('Sair') }}</a>
                             <form id="logout-form" action="{{ route('logout') }}" method="POST" class="hidden">
@@ -94,7 +94,7 @@
         #hamburger--content {
             opacity: 0;
             position: absolute;
-            top: 18%;
+            top: 10%;
             left: -5%;
             background-color: white;
             width: 100%;

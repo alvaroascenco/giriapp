@@ -23,6 +23,7 @@ export default createStore({
     },
     assignIdioms(state, payload){
 	console.log(state)
+	console.log(payload)
       console.log(payload)
       state.isFinishedIdioms = payload.data.isFinishedIdioms
       if(state.idioms.length == 0 || payload.overwrite == true) 

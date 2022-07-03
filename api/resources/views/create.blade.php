@@ -12,6 +12,15 @@
             </header>
 
             <div class="w-full p-6">
+                @if ($errors->any())
+                    <div class="alert alert-danger">
+                        <ul>
+                            @foreach ($errors->all() as $error)
+                                <li>{{ $error }}</li>
+                            @endforeach
+                        </ul>
+                    </div>
+                @endif
                 <form name="formGiria" action="{{ old('formGiria', isset($giriaToEdit) ? '/edit/update/'.$giriaToEdit->id : '/create/register') }}" method="POST" enctype="multipart/form-data">
                     @csrf
                     <h3 class="text-4xl text-center mb-4 w-100 font-bold text-blue-600">
@@ -40,10 +49,10 @@
                         <div id="wrapperLocais" class="grid grid-cols-3 gap-4">
                         @if(isset($giriaToEdit))
                             @foreach($giriaToEdit->local as $key => $localSingular)
-                                <input value="{{$localSingular}}" required id="{{'local'. ($key+1)}}" class="shadow appearance-none border rounded w-full py-2 px-3 mr-2 text-gray-700 mb-3 leading-tight focus:outline-none focus:shadow-outline" name="{{'local' . ($key+1)}}" type="text">
+                                <input value="{{$localSingular}}" required id="{{'local'. ($key+1)}}" class="shadow appearance-none border rounded w-full py-2 px-3 mr-2 text-gray-700 mb-3 leading-tight focus:outline-none focus:shadow-outline" name="local[]" type="text">
                             @endforeach
                         @else
-                            <input required id="local1" class="shadow appearance-none border rounded w-full py-2 px-3 mr-2 text-gray-700 mb-3 leading-tight focus:outline-none focus:shadow-outline" name="local1" type="text">
+                            <input required id="local1" class="shadow appearance-none border rounded w-full py-2 px-3 mr-2 text-gray-700 mb-3 leading-tight focus:outline-none focus:shadow-outline" name="local[]" type="text">
                         @endif
                         </div>
                     </div>
@@ -62,22 +71,22 @@
                         <div id="wrapperSignificados" class="grid grid-cols-1">
                         @if(isset($giriaToEdit))
                             @foreach($giriaToEdit->significados as $key => $significado)
-                                <input value="{{$significado}}" required id="{{'significado'.($key+1)}}" class="shadow appearance-none border rounded w-full py-2 px-3 mr-2 text-gray-700 mb-3 leading-tight focus:outline-none focus:shadow-outline" name="{{'significado'. ($key+1)}}" type="text">
+                                <input value="{{$significado}}" required id="{{'significado'.($key+1)}}" class="shadow appearance-none border rounded w-full py-2 px-3 mr-2 text-gray-700 mb-3 leading-tight focus:outline-none focus:shadow-outline" name="significado[]" type="text">
                             @endforeach
                         @else
-                            <input required id="significado1" class="shadow appearance-none border rounded w-full py-2 px-3 mr-2 text-gray-700 mb-3 leading-tight focus:outline-none focus:shadow-outline" name="significado1" type="text">
+                            <input required id="significado1" class="shadow appearance-none border rounded w-full py-2 px-3 mr-2 text-gray-700 mb-3 leading-tight focus:outline-none focus:shadow-outline" name="significado[]" type="text">
                         @endif
                         </div>
                     </div>
                     <div class="mb-4">
-                        <label class="block text-gray-700 text-sm font-bold mb-2" for="etimolobia">
-                            Etimologia
+                        <label class="block text-gray-700 text-sm font-bold mb-2" for="etimologia">
+                          Etimologia (opcional)
                         </label>
                         <textarea rows="6" name="etimologia" class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline">{{ old('etimologia', isset($giriaToEdit) ? $giriaToEdit->etimologia : '') }}</textarea>
                     </div>
                     <div class="mb-4">
-                        <span class="mt-2 text-base leading-normal">Imagem (opcional)</span>
-                        <input type='file' id="imagem" name="imagem" accept="image/png, image/jpeg"/>
+                        <label class="block text-gray-700 text-sm font-bold mb-2" for="imagem">Imagem (opcional)</label>
+                        <input type="text" class="shadow appearance-none border rounded w-full py-2 px-3 mr-2 text-gray-700 mb-3 leading-tight focus:outline-none focus:shadow-outline" name="imagem" id="imagem" placeholder="https://www.site.com/imagem.png">
                     </div>
                     <div class="mb-4">
                         <label class="block text-gray-700 text-sm font-bold mb-2" for="nome">
