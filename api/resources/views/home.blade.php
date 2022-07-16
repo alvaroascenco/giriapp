@@ -18,7 +18,7 @@
 
             <div class="w-full p-6">
                 @if(isset($giriasDesseUsuario) && count($giriasDesseUsuario) > 0)
-                    <div class="grid grid-cols-3 gap-2">
+                    <div class="grid grid-cols-1 md:grid-cols-3 gap-2">
                             @foreach ($giriasDesseUsuario as $giriaDesseUsuario)
                                 <div class="flex flex-col">
                                     <x-giria-card :giria="$giriaDesseUsuario" />
@@ -26,7 +26,7 @@
                             @endforeach
                     </div>
                 @elseif(isset($idiomsDesseUsuario) && count($idiomsDesseUsuario) > 0)
-                    <div class="grid grid-cols-3 gap-2">
+                    <div class="grid grid-cols-1 md:grid-cols-3 gap-2">
                             @foreach ($idiomsDesseUsuario as $idiom)
                                 <div class="flex flex-col">
                                     {{$idiom->id}}

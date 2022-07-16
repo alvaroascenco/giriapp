@@ -68,18 +68,19 @@ class GiriaController extends Controller
         $giria->criadoPor = Auth::user()->id;
 
         $giria->nome = $request->nome;
+        // return $request;
 
-        $locais = '';
-        $significados = '';
-        foreach($request->except('_token') as $key => $value){
-            if(strpos($key, 'local') !== false){
-                $locais .= $value.'/';
-            } else if(strpos($key, 'significado') !== false){
-                $significados .= $value.';*';
-            }
-        }
-        $giria->local = substr($locais, 0 ,-1);
-        $giria->significados = substr($significados, 0 ,-1);
+        $giria->local = implode('/', $request->local);
+        $giria->significados = implode(';*', $request->significado);
+        // foreach($request->except('_token') as $key => $value){
+        //     if(strpos($key, 'local') !== false){
+        //         $locais .= $value.'/';
+        //     } else if(strpos($key, 'significado') !== false){
+        //         $significados .= $value.';*';
+        //     }
+        // }
+        // $giria->local = substr($locais, 0 ,-1);
+        // $giria->significados = substr($significados, 0 ,-1);
 
         $giria->etimologia = isset($request->etimologia) ? $request->etimologia : null;
         $giria->imagem = $request->imagem;

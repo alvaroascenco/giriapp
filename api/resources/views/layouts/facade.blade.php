@@ -25,13 +25,14 @@
                         giriapi_
                     </a>
                 </div>
-                <nav class="space-x-4 w-3/4 text-blue-600 sm:text-sm">
                     @guest
-                        <a class="no-underline text-gray-500 lg:text-2xl sm:text-sm hover:underline" href="{{ route('login') }}">{{ __('Entrar') }}</a>
+                      <nav class="space-x-4 w-3/4 flex flex-col md:block text-blue-600 sm:text-sm text-right">
+                        <a class="no-underline text-gray-500 mb-2 lg:text-2xl sm:text-sm hover:underline" href="{{ route('login') }}">{{ __('Entrar') }}</a>
                         @if (Route::has('register'))
                             <a class="no-underline text-gray-500 lg:text-2xl sm:text-sm hover:underline" href="{{ route('register') }}">{{ __('Cadastre-se') }}</a>
                         @endif
                     @else
+                      <nav class="space-x-4 w-3/4 text-blue-600 sm:text-sm">
                         <div id="hamburger--icon" onclick="toggleHamburger()" class="md:hidden mr-1 inline float-right cursor-pointer space-y-2">
                           <div class="w-8 h-0.5 bg-gray-600"></div>
                           <div class="w-8 h-0.5 bg-gray-600"></div>
@@ -57,12 +58,12 @@
                                 </li>
                                 <li class="text-center py-3 border-b-2">
                                     <a href="{{ route('logout') }}"
-                                       class="no-underline text-gray-500 lg:text-2xl sm:text-sm hover:underline"
-                                       onclick="event.preventDefault();
-                                            // document.getElementById('logout-form').submit();">{{ __('Sair') }}</a>
-                                    <form id="logout-form" action="{{ route('logout') }}" method="POST" class="hidden">
-                                        {{ csrf_field() }}
-                                    </form>
+                                    class="no-underline text-gray-500 lg:text-lg sm:text-sm hover:underline"
+                                         onclick="event.preventDefault();
+                                            document.getElementById('logout-form').submit();">{{ __('Sair') }}</a>
+                                            <form id="logout-form" action="{{ route('logout') }}" method="POST" class="hidden">
+                                                {{ csrf_field() }}
+                                            </form>
                                 </li>
                             </ul>
                         </div>
@@ -78,7 +79,7 @@
                             <a href="{{ route('logout') }}"
                                class="no-underline text-gray-500 lg:text-lg sm:text-sm hover:underline"
                                onclick="event.preventDefault();
-                                    // document.getElementById('logout-form').submit();">{{ __('Sair') }}</a>
+                                    document.getElementById('logout-form').submit();">{{ __('Sair') }}</a>
                             <form id="logout-form" action="{{ route('logout') }}" method="POST" class="hidden">
                                 {{ csrf_field() }}
                             </form>
@@ -100,6 +101,7 @@
             width: 100%;
             transform-origin: 0% 0%;
             transform: translate(0, -200%);
+            z-index: 10;
             transition: opacity 0.5s ease-in-out, transform 0.5s cubic-bezier(0.77,0.2,0.05,1.0);
         }
         .efeitoUnderline {

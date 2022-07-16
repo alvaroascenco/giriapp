@@ -24,7 +24,7 @@
           </div>
         </div>
         <div class="mx-auto w-100 px-5 pt-4 lg:w-2/4">
-          @if ($giriaHoje != '')
+          @if (!empty($giriaHoje))
             <div class='text-4xl mb-4 w-100 font-bold'>A expressão de hoje é:</div>
               <x-giria-card :giria="$giriaHoje" />
           @else
