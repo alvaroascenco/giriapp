@@ -68,19 +68,9 @@ class GiriaController extends Controller
         $giria->criadoPor = Auth::user()->id;
 
         $giria->nome = $request->nome;
-        // return $request;
 
         $giria->local = implode('/', $request->local);
         $giria->significados = implode(';*', $request->significado);
-        // foreach($request->except('_token') as $key => $value){
-        //     if(strpos($key, 'local') !== false){
-        //         $locais .= $value.'/';
-        //     } else if(strpos($key, 'significado') !== false){
-        //         $significados .= $value.';*';
-        //     }
-        // }
-        // $giria->local = substr($locais, 0 ,-1);
-        // $giria->significados = substr($significados, 0 ,-1);
 
         $giria->etimologia = isset($request->etimologia) ? $request->etimologia : null;
         $giria->imagem = $request->imagem;
@@ -99,43 +89,32 @@ class GiriaController extends Controller
     public function editGiria(Request $request, $giriaId){
         $giriaToEdit = Giria::findOrFail($giriaId);
         $giriaToEdit->local = explode('/', $giriaToEdit->local);
-        $giriaToEdit->significados = explode(';*', substr($giriaToEdit->significados, 0, -1));
+        $giriaToEdit->significados = strpos($giriaToEdit->significados, ';*') > 0 ?
+            explode(';*', substr($giriaToEdit->significados, 0, -1)) :
+            [$giriaToEdit->significados];
 
         return view('create', ['giriaToEdit' => $giriaToEdit]);
     }
 
-    public function updateGiria(Request $request, $giriaId){
+    public function updateGiria(GiriaRequest $request, $giriaId){
         $giria =  Giria::findOrFail($giriaId);
 
         $giria->nome = $request->nome;
 
-        $locais = '';
-        $significados = '';
-        foreach($request->except('_token') as $key => $value){
-            if(strpos($key, 'local') !== false){
-                $locais .= $value.'/';
-            } else if(strpos($key, 'significado') !== false){
-                $significados .= $value.';*';
-            }
-        }
-        $giria->local = substr($locais, 0 ,-1);
-        $giria->significados = substr($significados, 0 ,-1);
+        $giria->local = implode('/', $request->local);
+        $giria->significados = implode(';*', $request->significado);
 
         $giria->etimologia = isset($request->etimologia) ? $request->etimologia : null;
-        $giria->imagem = '';
-        if(isset($request->imagem)){
-            Storage::put('public/', $request->file('imagem'));
-            $giria->imagem = $request->file('imagem');
-        }
+        $giria->imagem = $request->imagem;
         if(!empty($request->url) && $explodedURL = explode('watch?v=', $request->url)){
             $giria->videoId = $explodedURL[1];
         }
 
         if($giria->save()){
-            return app('App\Http\Controllers\HomeController')->index();
+            return redirect('/home');
         }
         
-        return view('create');
+        return editGiria($request, $giriaId);
     }
 
     public function deleteGiria($giriaId){

@@ -12,15 +12,6 @@
             </header>
 
             <div class="w-full p-6">
-                @if ($errors->any())
-                    <div class="alert alert-danger">
-                        <ul>
-                            @foreach ($errors->all() as $error)
-                                <li>{{ $error }}</li>
-                            @endforeach
-                        </ul>
-                    </div>
-                @endif
                 <form name="formGiria" action="{{ old('formGiria', isset($giriaToEdit) ? '/edit/update/'.$giriaToEdit->id : '/create/register') }}" method="POST" enctype="multipart/form-data">
                     @csrf
                     <h3 class="text-4xl text-center mb-4 w-100 font-bold text-blue-600">
@@ -86,7 +77,7 @@
                     </div>
                     <div class="mb-4">
                         <label class="block text-gray-700 text-sm font-bold mb-2" for="imagem">Imagem (opcional)</label>
-                        <input type="text" class="shadow appearance-none border rounded w-full py-2 px-3 mr-2 text-gray-700 mb-3 leading-tight focus:outline-none focus:shadow-outline" name="imagem" id="imagem" placeholder="https://www.site.com/imagem.png">
+                        <input type="text" value="{{ old('imagem', isset($giriaToEdit) ? $giriaToEdit->imagem : '') }}" class="shadow appearance-none border rounded w-full py-2 px-3 mr-2 text-gray-700 mb-3 leading-tight focus:outline-none focus:shadow-outline" name="imagem" id="imagem" placeholder="https://www.site.com/imagem.png">
                     </div>
                     <div class="mb-4">
                         <label class="block text-gray-700 text-sm font-bold mb-2" for="nome">
@@ -94,6 +85,15 @@
                         </label>
                         <input value="{{ old('url', isset($giriaToEdit) && !empty($giriaToEdit->videoId) ? 'https://www.youtube.com/watch?v='.$giriaToEdit->videoId : '') }}" name="url" class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" id="url" type="text">
                     </div>
+                    @if ($errors->any())
+                        <div class="alert alert-danger mb-2">
+                            <ul>
+                                @foreach ($errors->all() as $error)
+                                    <li>{{ $error }}</li>
+                                @endforeach
+                            </ul>
+                        </div>
+                    @endif
                     <div class="mb-6 flex justify-around">
                         <button type="submit" class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline" type="button">
                             @if(isset($giriaToEdit)) Editar

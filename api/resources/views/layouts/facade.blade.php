@@ -38,7 +38,7 @@
                           <div class="w-8 h-0.5 bg-gray-600"></div>
                           <div class="w-8 h-0.5 bg-gray-600"></div>
                         </div>
-                        <div id="hamburger--content">
+                        <div id="hamburger--content" class="hidden">
                             <ul>    
                                 <li class="text-center py-3 border-b-2">
                                     <a href="{{ route('home') }}"
