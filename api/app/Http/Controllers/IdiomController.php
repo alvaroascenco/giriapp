@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\Idiom;
+use App\Http\Requests\IdiomRequest;
 use Auth;
 
 class IdiomController extends Controller
@@ -13,23 +14,8 @@ class IdiomController extends Controller
         return view('createIdiom');
     }
 
-    public function createIdiom(Request $request){
+    public function createIdiom(IdiomRequest $request){
         
-        $validation = $request->validate([
-            'expressao_pt' => 'required|unique:idiom|max:255',
-            'expressao_en' => 'required|unique:idiom|max:255'
-        ],
-        [
-            'expressao_pt.unique' => 'Essa expressão já está cadastrada em português.',
-            'expressao_en.unique' => 'Essa expressão já está cadastrada em inglês.',
-
-            'expressao_pt.required' => 'O campo Gíria em português é obrigatório.',
-            'expressao_en.required' => 'O campo Gíria em inglês é obrigatório.',
-            
-            'max' => 'O limite máximo de caracteres permitidos foi excedido.',
-        ]
-        );
-
         $idiom = new Idiom;
         $idiom->criadoPor = Auth::user()->id; 
         $idiom->expressao_pt = $request->expressao_pt;
