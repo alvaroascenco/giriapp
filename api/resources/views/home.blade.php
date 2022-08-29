@@ -29,7 +29,9 @@
                     <div class="grid grid-cols-1 md:grid-cols-3 gap-2">
                             @foreach ($idiomsDesseUsuario as $idiom)
                                 <div class="flex flex-col">
-                                    {{$idiom->id}}
+                                    <a href="/">
+                                        {{$idiom->expressao_pt}} <-> {{$idiom->expressao_en}}
+                                    </a>
                                 </div>
                             @endforeach
                     </div>

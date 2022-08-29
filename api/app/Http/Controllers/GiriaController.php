@@ -11,6 +11,10 @@ use Auth;
 
 class GiriaController extends Controller
 {
+    public function __construct(){
+        $this->middleware(['auth', 'verified']);
+    }
+
     public function treatGiriaFields($giria){
 
         $giria->significados = explode('*', $giria->significados);

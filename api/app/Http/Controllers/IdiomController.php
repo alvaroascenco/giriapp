@@ -10,6 +10,10 @@ use Auth;
 class IdiomController extends Controller
 {
 
+    public function __construct(){
+        $this->middleware(['auth', 'verified']);
+    }
+
     public function idiomCreationForm(){
         return view('createIdiom');
     }
@@ -27,6 +31,12 @@ class IdiomController extends Controller
            return redirect('/idioms');
        };
     }
+
+    public function editIdiomPage(Request $request, $giriaId){
+        $idiom = Idiom::findOrFail($giriaId);
+        return view('createIdiom', ['idiomToEdit' => $idiom]);
+    }
+
     public function getIdioms(int $page){
         $idioms = Idiom::offset($page*18)->limit(18)->get();
         $data = [];

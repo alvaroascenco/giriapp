@@ -12,12 +12,16 @@
             </header>
 
             <div class="w-full p-2 md:p-6">
-                <form name="formIdiom" action="{{ old('formIdiom', isset($idiomToEdit) ? '/edit/update/'.$idiomToEdit->id : '/create/idiom/register') }}" method="POST" enctype="multipart/form-data">
+                <form name="formIdiom" action="{{ old('formIdiom', isset($idiomToEdit) ? '/update/idiom/'.$idiomToEdit->id : '/create/idiom/register') }}" method="POST" enctype="multipart/form-data">
                     @csrf
                    <div class="p-2 md:p-10 flex justify-around" style="background-color: #00d37f;">
-                        <textarea type="text" rows="4" cols="50" name="expressao_pt" class="rounded-lg text-center leading-6" placeholder="Expressão em português"></textarea>
+                        <textarea type="text" rows="4" cols="50" name="expressao_pt" class="rounded-lg text-center leading-6" placeholder="Expressão em português">
+                            {{ old('expressao_pt', isset($idiomToEdit) ? $idiomToEdit->expressao_pt : '') }}
+                        </textarea>
                         <img src="{{ asset('doubleArrow.svg') }}" id="arrow" alt="É equivalente a" width="70" height="70" class="mx-3">
-                        <textarea type="text" rows="4" cols="50" name="expressao_en" class="rounded-lg text-center leading-6" placeholder="Expressão em inglês"></textarea>
+                        <textarea type="text" rows="4" cols="50" name="expressao_en" class="rounded-lg text-center leading-6" placeholder="Expressão em inglês">
+                            {{ old('expressao_en', isset($idiomToEdit) ? $idiomToEdit->expressao_en : '') }}
+                        </textarea>
                     </div>
                     <div class="flex justify-center">
                             <input type="submit" style="background-color: #00d37f; cursor: pointer;" value="Enviar" class="text-white font-bold py-2 px-4 mt-3 rounded" />
