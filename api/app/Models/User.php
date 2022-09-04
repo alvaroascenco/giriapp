@@ -6,6 +6,8 @@ use Illuminate\Contracts\Auth\MustVerifyEmail;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
+use App\Notifications\ResetPassword;
+use App\Notifications\sendPasswordResetNotification;
 
 class User extends Authenticatable implements MustVerifyEmail
 {
@@ -47,5 +49,12 @@ class User extends Authenticatable implements MustVerifyEmail
 
     public function idioms(){
         return $this->hasMany(Idiom::class, 'criadoPor');
+    }
+
+    public function sendPasswordResetNotification($token)
+    {
+        $url = 'https://example.com/reset-password?token='.$token;
+    
+        $this->notify(new ResetPassword($url));
     }
 }
