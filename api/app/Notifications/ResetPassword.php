@@ -43,7 +43,9 @@ class ResetPassword extends Notification
         return (new MailMessage)
             ->subject('Redefinir senha')
             ->view(
-                'emails.reset-password', ['url' => $this->url]
+                'emails.reset-password', [
+                    'url' => $this->url."?email=".urlencode($notifiable->email) 
+                ]
             );
     }
 
