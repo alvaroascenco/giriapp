@@ -46,4 +46,8 @@ class HomeController extends Controller
     
         return view('home', ['idiomsDesseUsuario' => $idiomsDesseUsuario]);
     }
+
+    public function userOptionsPage(){
+        return view("user-options", ['userData' => Auth::user()]);
+    }
 }

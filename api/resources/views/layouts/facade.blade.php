@@ -57,6 +57,10 @@
                                        class="no-underline text-gray-500 lg:text-2xl sm:text-sm hover:underline">Catalogar expressão em inglês</a>
                                 </li>
                                 <li class="text-center py-3 border-b-2">
+                                    <a href="/user-options"
+                                       class="no-underline text-gray-500 lg:text-2xl sm:text-sm hover:underline">Opções do usuário</a>
+                                </li>
+                                <li class="text-center py-3 border-b-2">
                                     <a href="{{ route('logout') }}"
                                     class="no-underline text-gray-500 lg:text-lg sm:text-sm hover:underline"
                                          onclick="event.preventDefault();
@@ -76,6 +80,8 @@
                                class="no-underline text-gray-500 lg:text-lg sm:text-sm hover:underline">Catalogar gíria</a>
                             <a href="/create/idiom"
                                class="no-underline text-gray-500 lg:text-lg sm:text-sm hover:underline">Catalogar expressão em inglês</a>
+                            <a href="/user-options"
+                               class="no-underline text-gray-500 lg:text-lg sm:text-sm hover:underline">Opções do usuário</a>
                             <a href="{{ route('logout') }}"
                                class="no-underline text-gray-500 lg:text-lg sm:text-sm hover:underline"
                                onclick="event.preventDefault();
