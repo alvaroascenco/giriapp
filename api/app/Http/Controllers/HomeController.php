@@ -7,6 +7,7 @@ use Illuminate\Support\Facades\Password;
 use Illuminate\Support\Facades\Http;
 use App\Models\Giria;
 use App\Models\Idiom;
+use App\Models\User;
 use Auth;
 
 class HomeController extends Controller
@@ -63,5 +64,18 @@ class HomeController extends Controller
         return $status === Password::RESET_LINK_SENT
             ? back()->with(['status' => __($status)])
             : back()->withErrors(['email' => __($status)]);
+    }
+
+    public function alterUser(Request $request){
+        $currentUserId = Auth::user()->id;       
+        $currentUserObj = User::findOrFail($currentUserId);
+        $currentUserObj->name = $request->name;
+        $currentUserObj->email = $request->email;
+
+        $updateStatus = $currentUserObj->save(); 
+
+        return $updateStatus == 1
+            ? back()->with(['status' => 'Dados alterados com sucesso.'])
+            : back()->withErrors(['not_possible' => 'Não foi possível alterar os dados cadastrais.']);
     }
 }

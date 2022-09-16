@@ -10,6 +10,14 @@
                     {{ session('status') }}
                 </div>
             @endif
+
+            @error('not_possible')
+                <div class="text-sm text-red-700 bg-red-100 px-5 py-6 sm:rounded sm:border sm:border-red-400 sm:mb-6"
+                    role="alert">
+                    {{ $message }}
+                </div>
+            @enderror
+
             <section class="flex flex-col break-words bg-white sm:border-1 sm:rounded-md sm:shadow-sm sm:shadow-lg">
 
                 <header class="font-semibold bg-gray-200 text-gray-700 py-5 px-6 sm:py-6 sm:px-8 sm:rounded-t-md">

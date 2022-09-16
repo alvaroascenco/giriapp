@@ -13,7 +13,7 @@
         <section class="flex flex-col break-words bg-white sm:border-1 sm:rounded-md sm:shadow-sm sm:shadow-lg">
 
             <header class="font-semibold text-center bg-gray-200 text-gray-700 py-5 px-6 sm:py-6 sm:px-8 sm:rounded-t-md">
-                Seja bem-vindo {{ Auth::user()->name }}!
+                Seja bem-vindo, {{ Auth::user()->name }}!
             </header>
 
             <div class="w-full p-6">
@@ -37,7 +37,7 @@
                     </div>
                 @else
                     <div class='text-center'>
-                        Você ainda não cadastrou nenhuma gíria!
+                        Você ainda não cadastrou nada aqui.
                     </div>
                 @endif
             </div>

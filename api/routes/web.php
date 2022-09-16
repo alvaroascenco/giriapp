@@ -28,7 +28,9 @@ Route::group(['middleware' => ['auth', 'verified']], function(){
     Route::get('/idioms', [HomeController::class, 'idiomsPage'])->name('idioms');
 
     Route::get('/user-options', [HomeController::class, 'userOptionsPage']);
+    Route::post('/alter-user', [HomeController::class, 'alterUser']);
     Route::get('/password/reset-from-user-options', [HomeController::class, 'resetUserPasswordFromOptionsPage']);
+
 
     Route::get('/create', [GiriaController::class, 'newGiria']);
     Route::post('/create/register', [GiriaController::class, 'createGiria']);
