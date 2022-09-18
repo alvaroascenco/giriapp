@@ -78,4 +78,24 @@ class HomeController extends Controller
             ? back()->with(['status' => 'Dados alterados com sucesso.'])
             : back()->withErrors(['not_possible' => 'Não foi possível alterar os dados cadastrais.']);
     }
+
+    public function deleteAccount(Request $request){
+        try{
+            $currentUserId = Auth::user()->id;
+
+            $deletedGirias = Giria::where('criadoPor', $currentUserId)->delete();
+            $deletedIdioms = Idiom::where('criadoPor', $currentUserId)->delete();
+
+            $user = User::find(Auth::user()->id);
+
+            Auth::logout();
+
+            if ($user->delete()) {
+                return redirect('/');
+            }
+        }catch(Exception $e){
+            return back()->withErrors(['not_possible' => 'Não foi possível alterar os dados cadastrais.']);
+        }
+
+    }
 }
