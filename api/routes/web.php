@@ -48,6 +48,9 @@ Route::group(['middleware' => ['auth', 'verified']], function(){
     Route::get('/delete/idiom/{idiomId}', [IdiomController::class, 'deleteIdiom']);
 });
 
+Route::get('/privacidade', [HomeController::class, 'privacidadePage']);
+Route::get('/termos', [HomeController::class, 'termosPage']);
+
 Route::get('/token', function () {
     return csrf_token(); 
 });

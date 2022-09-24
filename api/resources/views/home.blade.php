@@ -26,11 +26,23 @@
                             @endforeach
                     </div>
                 @elseif(isset($idiomsDesseUsuario) && count($idiomsDesseUsuario) > 0)
-                    <div class="grid grid-cols-1 md:grid-cols-3 gap-2">
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-2">
                             @foreach ($idiomsDesseUsuario as $idiom)
                                 <div class="flex flex-col">
-                                    <a href="/">
-                                        {{$idiom->expressao_pt}} <-> {{$idiom->expressao_en}}
+                                    <a href="/edit/idiom/{{$idiom->id}}" class="text-white py-3 text-center hover:bg-gray-200" style="background-color: #00d37f;">
+                                        <div class="flex justify-center font-bold">
+                                            <span>
+                                                {{$idiom->expressao_pt}}
+                                            </span>
+                                            <span>
+                                                &nbsp;
+                                                <img src="http://localhost:8000/doubleArrow.svg" id="arrow" alt="É equivalente a" width="50" height="50" class="mx-3">
+                                                &nbsp;
+                                            </span>
+                                            <span>
+                                                {{$idiom->expressao_en}}
+                                            </span>
+                                        </div>
                                     </a>
                                 </div>
                             @endforeach

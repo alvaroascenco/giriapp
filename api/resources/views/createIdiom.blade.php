@@ -23,8 +23,15 @@
                             {{ old('expressao_en', isset($idiomToEdit) ? $idiomToEdit->expressao_en : '') }}
                         </textarea>
                     </div>
-                    <div class="flex justify-center">
+                    <div class="flex justify-around">
                             <input type="submit" style="background-color: #00d37f; cursor: pointer;" value="Enviar" class="text-white font-bold py-2 px-4 mt-3 rounded" />
+                            @if (isset($idiomToEdit))
+                                <button type="submit" class="bg-red-500 hover:bg-red-700 text-white font-bold py-1 px-3 mt-3 rounded focus:outline-none focus:shadow-outline" type="button">
+                                    <a href="{{'/delete/idiom/'.$idiomToEdit->id}}">
+                                        Excluir
+                                    </a>
+                                </button>
+                            @endif
                     </div>
                     @if ($errors->any())
                         <div class="bg-red-500 text-white text-center mt-3 py-2">

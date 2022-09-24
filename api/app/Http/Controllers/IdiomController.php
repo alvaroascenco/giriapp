@@ -72,14 +72,14 @@ class IdiomController extends Controller
         return $res;
     }
 
-    public function updateIdiom(Request $request, $idiomId){
+    public function updateIdiom(IdiomRequest $request, $idiomId){
 
         $updateIdiom = Idiom::findOrFail($idiomId);
         $updateIdiom->expressao_pt = $request->expressao_pt;
         $updateIdiom->expressao_en = $request->expressao_en;
 
         if($updateIdiom->save()){
-            return response($updateIdiom,200);
+            return redirect('/idioms');
         }
     }
     public function deleteIdiom($idiomId){
@@ -87,7 +87,7 @@ class IdiomController extends Controller
         $idiom = Idiom::find($idiomId);
 
         if($idiom->delete()){
-            return response("Ok",200);
+            return redirect("/idioms");
         } 
     }
 }

@@ -17,7 +17,7 @@
     <link href="{{ mix('css/app.css') }}" rel="stylesheet">
 </head>
 <body class="bg-gray-100 h-screen antialiased leading-none font-sans">
-    <div id="app">
+    <div id="app" class="flex flex-col justify-between h-screen">
         <header class="py-7 border-b border-gray-300">
             <div class="container mx-auto flex justify-between px-5 lg:px-0 items-center">
                 <div>
@@ -96,6 +96,12 @@
         </header>
 
         @yield('content')
+
+        <footer class="bg-gray-200 text-gray-400 text-center py-4 sticky top-[100%]">
+            GiriAPI {{date("Y")}}<br>
+            <a href="/privacidade" class="underline">Política de privacidade</a>
+            <a href="/termos" class="underline">Termos de uso</a>
+        </footer>
     </div>
     <style>
         #hamburger--content {
