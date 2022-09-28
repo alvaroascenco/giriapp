@@ -31,13 +31,45 @@
 
         <p class="mb-5">
             <b>A)</b> Não se envolver em atividades que sejam ilegais ou contrárias à boa fé a à ordem pública;<br>
-            <b>B)</b> Não difundir propaganda ou conteúdo de natureza racista, xenofóbica, casas de apostas ou azar, qualquer tipo de pornografia ilegal, de apologia ao terrorismo ou contra os direitos humanos;<br>
+            <b>B)</b> Não difundir propaganda ou conteúdo de natureza racista, xenofóbica, casas de apostas ou azar, qualquer tipo de pornografia legal ou ilegal, de apologia ao terrorismo ou contra os direitos humanos;<br>
             <b>C)</b> Não causar danos aos sistemas físicos (hardwares) e lógicos (softwares) do GiriAPI, de seus fornecedores ou terceiros, para introduzir ou disseminar vírus informáticos ou quaisquer outros sistemas de hardware ou software que sejam capazes de causar danos anteriormente mencionados.<br>
+        </p>
+        <h1 class="text-xl font-bold md:text-3xl mb-2 text-center">Termos de uso</h1>
+        <p class='mb-5'>
+            <ul>
+                <li>
+                    Os materiais no site da GiriAPI são fornecidos 'como estão'.
+                    GiriAPI não oferece garantias, expressas ou implícitas, e,
+                    por este meio, isenta e nega todas as outras garantias, incluindo,
+                    sem limitação, garantias implícitas ou condições de comercialização,
+                    adequação a um fim específico ou não violação de propriedade intelectual ou outra violação de direitos.
+                </li>
+                <li>
+                    Além disso, o GiriAPI não garante ou faz qualquer representação relativa à precisão,
+                    aos resultados prováveis ​​ou à confiabilidade do uso dos materiais em seu
+                    site ou de outra forma relacionado a esses materiais ou em sites vinculados a este site.
+                </li>
+                <li>
+                    Em nenhum caso o GiriAPI ou seus fornecedores serão responsáveis ​​por quaisquer danos
+                    (incluindo, sem limitação, danos por perda de dados ou lucro ou devido a interrupção dos negócios)
+                    decorrentes do uso ou da incapacidade de usar os materiais em GiriAPI, mesmo que GiriAPI ou um representante autorizado da GiriAPI tenha sido notificado oralmente ou por escrito da possibilidade de tais danos.
+                    Como algumas jurisdições não permitem limitações em garantias implícitas, ou limitações de responsabilidade por danos conseqüentes ou incidentais, essas limitações podem não se aplicar a você.
+                </li>
+                <li>
+                    Os materiais exibidos no site da GiriAPI podem incluir erros técnicos, tipográficos ou fotográficos.
+                    GiriAPI não garante que qualquer material em seu site seja preciso, completo ou atual.
+                    GiriAPI pode fazer alterações nos materiais contidos em seu site a qualquer momento, sem aviso prévio. No entanto, GiriAPI não se compromete a atualizar os materiais.
+                </li>
+                <li>
+                    O GiriAPI não analisou todos os sites vinculados ao seu site e não é responsável pelo conteúdo de nenhum site vinculado.
+                    A inclusão de qualquer link não implica endosso por GiriAPI do site.
+                    O uso de qualquer site vinculado é por conta e risco do usuário.
+                </li>
+            </ul>
         </p>
         <hr class='mb-5'>
         <h2 class="text-xl font-bold md:text-3xl mb-2 text-center">Mais informações</h2>
-        Esperemos que esteja esclarecido e, como mencionado anteriormente, se houver algo que você não tem certeza se precisa ou não, geralmente é mais seguro deixar os cookies ativados, caso interaja com um dos recursos que você usa em nosso site.<br>
-
+O GiriAPI pode revisar os termos de uso e a política de privacidade do ecossistema (leia-se site e APIs) a qualquer momento, sem aviso prévio. Ao usar este site, você concorda em ficar vinculado à versão atual desses termos de uso. Todos os termos descritos aqui também são validos para todos os componentes do ecossistema (GiriAPP e GiriAPI)
        <h3 class="text-center text-2xl my-5">Esta política é efetiva a partir de 24 setembro 2022 11:47</h3>
     </div>
 </section>
