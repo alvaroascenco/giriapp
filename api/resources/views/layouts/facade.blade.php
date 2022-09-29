@@ -100,6 +100,7 @@
         <footer class="bg-gray-200 text-gray-400 text-center py-4 sticky top-[100%]">
             GiriAPI {{date("Y")}}<br>
             <a href="/privacidade" class="underline">Política de privacidade e termos de uso</a>
+            <a href="/sobre" class="underline">Sobre o projeto</a>
         </footer>
     </div>
     <style>

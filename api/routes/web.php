@@ -49,6 +49,7 @@ Route::group(['middleware' => ['auth', 'verified']], function(){
 });
 
 Route::get('/privacidade', [HomeController::class, 'privacidadePage']);
+Route::get('/sobre', [HomeController::class, 'sobrePage']);
 
 Route::get('/token', function () {
     return csrf_token(); 
