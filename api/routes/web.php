@@ -20,6 +20,8 @@ use \App\Http\Controllers\IdiomController;
 |
 */
 
+Route::get('/privacidade', [GuestController::class, 'privacidadePage']);
+Route::get('/sobre', [GuestController::class, 'sobrePage']);
 Route::get('/', [GuestController::class, 'index']);
 Auth::routes(['verify' => true]);
 
@@ -48,8 +50,6 @@ Route::group(['middleware' => ['auth', 'verified']], function(){
     Route::get('/delete/idiom/{idiomId}', [IdiomController::class, 'deleteIdiom']);
 });
 
-Route::get('/privacidade', [HomeController::class, 'privacidadePage']);
-Route::get('/sobre', [HomeController::class, 'sobrePage']);
 
 Route::get('/token', function () {
     return csrf_token(); 

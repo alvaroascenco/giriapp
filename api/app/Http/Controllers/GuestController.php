@@ -16,4 +16,12 @@ class GuestController extends Controller
         
         return view("welcome", ['giriaHoje' => $giriaHoje]);
     }
+
+    public function privacidadePage(){
+        return view('privacidade');
+    }
+
+    public function sobrePage(){
+        return view('sobre');
+    }
 }

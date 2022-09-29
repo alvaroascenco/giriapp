@@ -99,11 +99,4 @@ class HomeController extends Controller
 
     }
 
-    public function privacidadePage(){
-        return view('privacidade');
-    }
-
-    public function sobrePage(){
-        return view('sobre');
-    }
 }
