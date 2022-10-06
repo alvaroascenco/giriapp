@@ -20,8 +20,9 @@
                <div class="border-t-2 md:border-l-2 md:h-56 h-0 w-56 md:w-0 border-slate-500"></div>
                <div class='mr-5 w-full md:w-1/2 mt-3 md:mt-0 md:pl-5'>
                   <h3 class='text-xl mb-5'>
-                     Contribuidores
+                     Contato
                   </h3>
+                  <span>giriapi@tutanota.com</span>
                </div>
             </div>
          </div>
