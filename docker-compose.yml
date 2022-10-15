@@ -1,0 +1,54 @@
+version: "3.7"
+services:
+
+  backend:
+    build:
+      args:
+        user: giriapi_foo
+        uid: 1000
+      context: ./
+      dockerfile: giriapi.Dockerfile
+    image: giriapi
+    container_name: giriapi
+    restart: unless-stopped
+    working_dir: /var/www
+    depends_on:
+      - db
+    volumes:
+      - ./api:/var/www
+    networks:
+      - giriapi
+
+  db:
+    image: mysql:8.0
+    container_name: db
+    restart: unless-stopped
+    environment:
+      MYSQL_DATABASE:  giriapi
+      MYSQL_ROOT_PASSWORD: root
+      MYSQL_USER: operator
+      MYSQL_PASSWORD: root
+      SERVICE_TAGS: dev
+      SERVICE_NAME: mysql
+    volumes:
+      - ./container-data/mysql:/docker-entrypoint-initdb.d
+    networks:
+      - giriapi
+
+  nginx:
+    image: nginx:alpine
+    container_name: nginx-giriapi
+    restart: unless-stopped
+    depends_on:
+      - backend
+    ports:
+      - 8000:80
+    volumes:
+      - ./api:/var/www
+      - ./confs:/etc/nginx/conf.d/
+    networks:
+      - giriapi
+
+networks:
+  giriapi:
+    driver: bridge

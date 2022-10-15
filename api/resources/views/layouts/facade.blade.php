@@ -17,87 +17,89 @@
     <link href="{{ mix('css/app.css') }}" rel="stylesheet">
 </head>
 <body class="bg-gray-100 h-screen antialiased leading-none font-sans">
-    <div id="app" class="flex flex-col justify-between h-screen">
-        <header class="py-7 border-b border-gray-300">
-            <div class="container mx-auto flex justify-between px-5 lg:px-0 items-center">
-                <div>
-                    <a href="{{ url('/') }}" class="border-4 text-3xl sm:ml-2 lg:ml-0 border-blue-600 p-2 font-bold text-blue-600 no-underline">
-                        giriapi_
-                    </a>
+    <div id="app" class="flex flex-col">
+        <div class="min-h-screen">
+            <header class="py-7 border-b border-gray-300">
+                <div class="container mx-auto flex justify-between px-5 lg:px-0 items-center">
+                    <div>
+                        <a href="{{ url('/') }}" class="border-4 text-3xl sm:ml-2 lg:ml-0 border-blue-600 p-2 font-bold text-blue-600 no-underline">
+                            giriapi_
+                        </a>
+                    </div>
+                        @guest
+                        <nav class="space-x-4 w-3/4 flex flex-col md:block text-blue-600 sm:text-sm text-right">
+                            <a class="no-underline text-gray-500 mb-2 lg:text-2xl sm:text-sm hover:underline" href="{{ route('login') }}">{{ __('Entrar') }}</a>
+                            @if (Route::has('register'))
+                                <a class="no-underline text-gray-500 lg:text-2xl sm:text-sm hover:underline" href="{{ route('register') }}">{{ __('Cadastre-se') }}</a>
+                            @endif
+                        @else
+                        <nav class="space-x-4 w-3/4 text-blue-600 sm:text-sm">
+                            <div id="hamburger--icon" onclick="toggleHamburger()" class="md:hidden mr-1 inline float-right cursor-pointer space-y-2">
+                            <div class="w-8 h-0.5 bg-gray-600"></div>
+                            <div class="w-8 h-0.5 bg-gray-600"></div>
+                            <div class="w-8 h-0.5 bg-gray-600"></div>
+                            </div>
+                            <div id="hamburger--content" class="hidden">
+                                <ul>    
+                                    <li class="text-center py-3 border-b-2">
+                                        <a href="{{ route('home') }}"
+                                            class="no-underline text-gray-500 lg:text-2xl sm:text-sm hover:underline">Gírias catalogadas</a>
+                                    </li>
+                                    <li class="text-center py-3 border-b-2">
+                                        <a href="/create"
+                                        class="no-underline text-gray-500 lg:text-2xl sm:text-sm hover:underline">Catalogar gíria</a>
+                                    </li>
+                                    <li class="text-center py-3 border-b-2">
+                                        <a href="{{ route('idioms') }}"
+                                        class="no-underline text-gray-500 lg:text-2xl sm:text-sm hover:underline">Expressões em inglês catalogadas</a>
+                                    </li>
+                                    <li class="text-center py-3 border-b-2">
+                                        <a href="/create/idiom"
+                                        class="no-underline text-gray-500 lg:text-2xl sm:text-sm hover:underline">Catalogar expressão em inglês</a>
+                                    </li>
+                                    <li class="text-center py-3 border-b-2">
+                                        <a href="/user-options"
+                                        class="no-underline text-gray-500 lg:text-2xl sm:text-sm hover:underline">Opções do usuário</a>
+                                    </li>
+                                    <li class="text-center py-3 border-b-2">
+                                        <a href="{{ route('logout') }}"
+                                        class="no-underline text-gray-500 lg:text-lg sm:text-sm hover:underline"
+                                            onclick="event.preventDefault();
+                                                document.getElementById('logout-form').submit();">{{ __('Sair') }}</a>
+                                                <form id="logout-form" action="{{ route('logout') }}" method="POST" class="hidden">
+                                                    {{ csrf_field() }}
+                                                </form>
+                                    </li>
+                                </ul>
+                            </div>
+                            <div class="hidden md:flex md:justify-between">
+                                <a href="{{ route('home') }}"
+                                class="no-underline text-gray-500 lg:text-lg sm:text-sm hover:underline">Gírias catalogadas</a>
+                                <a href="{{ route('idioms') }}"
+                                class="no-underline text-gray-500 lg:text-lg sm:text-sm hover:underline">Expressões em inglês catalogadas</a>
+                                <a href="/create"
+                                class="no-underline text-gray-500 lg:text-lg sm:text-sm hover:underline">Catalogar gíria</a>
+                                <a href="/create/idiom"
+                                class="no-underline text-gray-500 lg:text-lg sm:text-sm hover:underline">Catalogar expressão em inglês</a>
+                                <a href="/user-options"
+                                class="no-underline text-gray-500 lg:text-lg sm:text-sm hover:underline">Opções do usuário</a>
+                                <a href="{{ route('logout') }}"
+                                class="no-underline text-gray-500 lg:text-lg sm:text-sm hover:underline"
+                                onclick="event.preventDefault();
+                                        document.getElementById('logout-form').submit();">{{ __('Sair') }}</a>
+                                <form id="logout-form" action="{{ route('logout') }}" method="POST" class="hidden">
+                                    {{ csrf_field() }}
+                                </form>
+                            </div>
+                        @endguest
+                    </nav>
                 </div>
-                    @guest
-                      <nav class="space-x-4 w-3/4 flex flex-col md:block text-blue-600 sm:text-sm text-right">
-                        <a class="no-underline text-gray-500 mb-2 lg:text-2xl sm:text-sm hover:underline" href="{{ route('login') }}">{{ __('Entrar') }}</a>
-                        @if (Route::has('register'))
-                            <a class="no-underline text-gray-500 lg:text-2xl sm:text-sm hover:underline" href="{{ route('register') }}">{{ __('Cadastre-se') }}</a>
-                        @endif
-                    @else
-                      <nav class="space-x-4 w-3/4 text-blue-600 sm:text-sm">
-                        <div id="hamburger--icon" onclick="toggleHamburger()" class="md:hidden mr-1 inline float-right cursor-pointer space-y-2">
-                          <div class="w-8 h-0.5 bg-gray-600"></div>
-                          <div class="w-8 h-0.5 bg-gray-600"></div>
-                          <div class="w-8 h-0.5 bg-gray-600"></div>
-                        </div>
-                        <div id="hamburger--content" class="hidden">
-                            <ul>    
-                                <li class="text-center py-3 border-b-2">
-                                    <a href="{{ route('home') }}"
-                                        class="no-underline text-gray-500 lg:text-2xl sm:text-sm hover:underline">Gírias catalogadas</a>
-                                </li>
-                                <li class="text-center py-3 border-b-2">
-                                    <a href="/create"
-                                       class="no-underline text-gray-500 lg:text-2xl sm:text-sm hover:underline">Catalogar gíria</a>
-                                </li>
-                                <li class="text-center py-3 border-b-2">
-                                    <a href="{{ route('idioms') }}"
-                                       class="no-underline text-gray-500 lg:text-2xl sm:text-sm hover:underline">Expressões em inglês catalogadas</a>
-                                </li>
-                                <li class="text-center py-3 border-b-2">
-                                    <a href="/create/idiom"
-                                       class="no-underline text-gray-500 lg:text-2xl sm:text-sm hover:underline">Catalogar expressão em inglês</a>
-                                </li>
-                                <li class="text-center py-3 border-b-2">
-                                    <a href="/user-options"
-                                       class="no-underline text-gray-500 lg:text-2xl sm:text-sm hover:underline">Opções do usuário</a>
-                                </li>
-                                <li class="text-center py-3 border-b-2">
-                                    <a href="{{ route('logout') }}"
-                                    class="no-underline text-gray-500 lg:text-lg sm:text-sm hover:underline"
-                                         onclick="event.preventDefault();
-                                            document.getElementById('logout-form').submit();">{{ __('Sair') }}</a>
-                                            <form id="logout-form" action="{{ route('logout') }}" method="POST" class="hidden">
-                                                {{ csrf_field() }}
-                                            </form>
-                                </li>
-                            </ul>
-                        </div>
-                        <div class="hidden md:flex md:justify-between">
-                            <a href="{{ route('home') }}"
-                               class="no-underline text-gray-500 lg:text-lg sm:text-sm hover:underline">Gírias catalogadas</a>
-                            <a href="{{ route('idioms') }}"
-                               class="no-underline text-gray-500 lg:text-lg sm:text-sm hover:underline">Expressões em inglês catalogadas</a>
-                            <a href="/create"
-                               class="no-underline text-gray-500 lg:text-lg sm:text-sm hover:underline">Catalogar gíria</a>
-                            <a href="/create/idiom"
-                               class="no-underline text-gray-500 lg:text-lg sm:text-sm hover:underline">Catalogar expressão em inglês</a>
-                            <a href="/user-options"
-                               class="no-underline text-gray-500 lg:text-lg sm:text-sm hover:underline">Opções do usuário</a>
-                            <a href="{{ route('logout') }}"
-                               class="no-underline text-gray-500 lg:text-lg sm:text-sm hover:underline"
-                               onclick="event.preventDefault();
-                                    document.getElementById('logout-form').submit();">{{ __('Sair') }}</a>
-                            <form id="logout-form" action="{{ route('logout') }}" method="POST" class="hidden">
-                                {{ csrf_field() }}
-                            </form>
-                        </div>
-                    @endguest
-                </nav>
-            </div>
-        </header>
+            </header>
 
-        @yield('content')
+            @yield('content')
+        </div>
 
-        <footer class="bg-gray-200 text-gray-400 text-center py-4 sticky top-[100%]">
+        <footer class="bg-gray-200 text-gray-400 text-center py-4 mt-auto">
             GiriAPI {{date("Y")}}<br>
             <a href="/privacidade" class="underline">Política de privacidade e termos de uso</a>
             <a href="/sobre" class="underline">Sobre o projeto</a>
