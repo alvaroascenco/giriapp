@@ -1,6 +1,5 @@
 version: "3.7"
 services:
-
   backend:
     build:
       args:
@@ -18,7 +17,6 @@ services:
       - ./api:/var/www
     networks:
       - giriapi
-
   db:
     image: mysql:8.0
     container_name: db
@@ -34,7 +32,6 @@ services:
       - ./container-data/mysql:/docker-entrypoint-initdb.d
     networks:
       - giriapi
-
   nginx:
     image: nginx:alpine
     container_name: nginx-giriapi
@@ -48,7 +45,6 @@ services:
       - ./confs:/etc/nginx/conf.d/
     networks:
       - giriapi
-
 networks:
   giriapi:
     driver: bridge

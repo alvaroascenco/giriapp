@@ -71,17 +71,17 @@
                     </div>
                     <div class="mb-4">
                         <label class="block text-gray-700 text-sm font-bold mb-2" for="etimologia">
-                          Etimologia (opcional)
+                          Etimologia ou origem (opcional)
                         </label>
                         <textarea rows="6" name="etimologia" class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline">{{ old('etimologia', isset($giriaToEdit) ? $giriaToEdit->etimologia : '') }}</textarea>
                     </div>
-                    <div class="mb-4">
+                    <!-- <div class="mb-4">
                         <label class="block text-gray-700 text-sm font-bold mb-2" for="imagem">Imagem (opcional)</label>
                         <input type="text" value="{{ old('imagem', isset($giriaToEdit) ? $giriaToEdit->imagem : '') }}" class="shadow appearance-none border rounded w-full py-2 px-3 mr-2 text-gray-700 mb-3 leading-tight focus:outline-none focus:shadow-outline" name="imagem" id="imagem" placeholder="https://www.site.com/imagem.png">
-                    </div>
+                    </div> -->
                     <div class="mb-4">
                         <label class="block text-gray-700 text-sm font-bold mb-2" for="nome">
-                            URL (Youtube/opcional)
+                            URL de um vídeo explicativo (Youtube/opcional)
                         </label>
                         <input value="{{ old('url', isset($giriaToEdit) && !empty($giriaToEdit->videoId) ? 'https://www.youtube.com/watch?v='.$giriaToEdit->videoId : '') }}" name="url" class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" id="url" type="text">
                     </div>

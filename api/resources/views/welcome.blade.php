@@ -8,8 +8,9 @@
         <div class="mx-auto w-100 px-2 lg:w-2/4">
           <div class='text-6xl mb-4 font-bold'>GiriAPI.</div>
           <div class="text-lg leading-8">
-            O GiriApp é o seu dicionário digital de provérbios populares regionais
-            de plataforma intuitiva e simples, que cataloga e significa as expressões mais usadas em cada estado do Brasil.
+            A GiriApi é a API de provérbios populares regionais
+            intuitiva e simples, que cataloga e significa as expressões mais usadas em cada estado do Brasil, também como
+            expressões comuns em inglês e suas interpretações em português.
           </div>
         </div>
       </div>
@@ -19,7 +20,7 @@
         <div class="mx-auto w-100 px-5 pb-10 lg:w-2/4">
           <div class='md:text-6xl text-5xl mb-4 font-bold'>Versão 0.1</div>
           <div class="text-lg leading-8 lg:px-20">
-            O GiriAPP e a GiriAPI estão no ar! Estamos orgulhosos em anunciar a beta aberta do nosso querido dicionário de expressões
+            A GiriAPI está no ar! Estamos orgulhosos em anunciar a beta aberta do nosso querido dicionário de expressões
             regionais e idiomáticas. <a href="/sobre" class="text-black hover:underline">Saiba mais sobre o projeto</a>
           </div>
         </div>
