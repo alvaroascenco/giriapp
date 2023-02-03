@@ -53,7 +53,11 @@ class RegisterController extends Controller
             'name' => ['required', 'string', 'max:255'],
             'email' => ['required', 'string', 'email', 'max:255', 'unique:users', 'disposable_pizza'],
             'password' => ['required', 'string', 'min:8', 'confirmed'],
-        ]);
+        ],
+        [
+            'disposable_pizza' => 'O email utilizado é temporário, favor utilizar um email não temporário'
+        ]
+        );
     }
 
     /**
