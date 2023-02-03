@@ -32,6 +32,16 @@ services:
       - ./container-data/mysql:/docker-entrypoint-initdb.d
     networks:
       - giriapi
+  phpmyadmin:
+    image: phpmyadmin:latest
+    container_name: phpmyadmin
+    restart: unless-stopped
+    depends_on:
+      - db
+    ports: 
+      - 7777:80
+    networks:
+      - giriapi
   nginx:
     image: nginx:alpine
     container_name: nginx-giriapi

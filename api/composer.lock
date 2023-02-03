@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "87cad83b67717b0187328d163350b454",
+    "content-hash": "86f4c14777bf0633ca77c871e8d48d00",
     "packages": [
         {
             "name": "asm89/stack-cors",
@@ -3041,6 +3041,70 @@
                 }
             ],
             "time": "2023-01-12T18:13:24+00:00"
+        },
+        {
+            "name": "romanzipp/laravel-validator-pizza",
+            "version": "1.3.0",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/romanzipp/Laravel-Validator-Pizza.git",
+                "reference": "dab87373555b103b09bcc4a7610a9b245d7e55e5"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/romanzipp/Laravel-Validator-Pizza/zipball/dab87373555b103b09bcc4a7610a9b245d7e55e5",
+                "reference": "dab87373555b103b09bcc4a7610a9b245d7e55e5",
+                "shasum": ""
+            },
+            "require": {
+                "guzzlehttp/guzzle": "^6.3|^7.0",
+                "illuminate/support": "^5.5|^6.0|^7.0|^8.0|^9.0",
+                "php": "^7.2|^8.0"
+            },
+            "require-dev": {
+                "friendsofphp/php-cs-fixer": "^3.0",
+                "mockery/mockery": "^1.3.2",
+                "orchestra/testbench": "^3.8|^4.0|^5.0|^6.0",
+                "phpstan/phpstan": "^0.12.99|^1.0",
+                "phpunit/phpunit": "^8.0|^9.0",
+                "romanzipp/php-cs-fixer-config": "^3.0"
+            },
+            "type": "library",
+            "extra": {
+                "laravel": {
+                    "providers": [
+                        "romanzipp\\ValidatorPizza\\Providers\\ValidatorPizzaProvider"
+                    ]
+                }
+            },
+            "autoload": {
+                "psr-4": {
+                    "romanzipp\\ValidatorPizza\\": "src/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "romanzipp",
+                    "email": "ich@ich.wtf",
+                    "homepage": "https://ich.wtf"
+                }
+            ],
+            "description": "A Laravel Wrapper for the laravel.pizza disposable email API",
+            "support": {
+                "issues": "https://github.com/romanzipp/Laravel-Validator-Pizza/issues",
+                "source": "https://github.com/romanzipp/Laravel-Validator-Pizza/tree/1.3.0"
+            },
+            "funding": [
+                {
+                    "url": "https://github.com/romanzipp",
+                    "type": "github"
+                }
+            ],
+            "time": "2022-02-08T16:27:06+00:00"
         },
         {
             "name": "swiftmailer/swiftmailer",
@@ -7848,5 +7912,5 @@
         "php": "^7.3|^8.0"
     },
     "platform-dev": [],
-    "plugin-api-version": "2.3.0"
+    "plugin-api-version": "2.2.0"
 }
