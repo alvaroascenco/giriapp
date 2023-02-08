@@ -81,7 +81,7 @@
                     </div> -->
                     <div class="mb-4">
                         <label class="block text-gray-700 text-sm font-bold mb-2" for="nome">
-                            URL de um vídeo explicativo (Youtube/opcional)
+                            URL de um vídeo explicativo ou exemplificativo (Youtube/opcional)
                         </label>
                         <input value="{{ old('url', isset($giriaToEdit) && !empty($giriaToEdit->videoId) ? 'https://www.youtube.com/watch?v='.$giriaToEdit->videoId : '') }}" name="url" class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" id="url" type="text">
                     </div>

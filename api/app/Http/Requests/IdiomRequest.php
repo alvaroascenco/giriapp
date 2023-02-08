@@ -25,8 +25,8 @@ class IdiomRequest extends FormRequest
     public function rules()
     {
         return [
-            'expressao_pt' => 'required|max:100|regex:/^[A-Za-zÀ-ÖØ-öø-ÿçÇ\-\s]{2,}$/',
-            'expressao_en' => 'required|max:100|regex:/^[A-Za-z\'\-\s]{2,}$/',
+            'expressao_pt' => 'required|max:250|regex:/^[A-Za-zÀ-ÖØ-öø-ÿçÇ\-\,\.\(\)\s]{2,}$/',
+            'expressao_en' => 'required|max:250|regex:/^[A-Za-z\'\-\,\.\(\)\s]{2,}$/',
         ];
     }
 }

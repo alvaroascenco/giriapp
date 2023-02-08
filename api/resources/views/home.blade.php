@@ -30,18 +30,16 @@
                             @foreach ($idiomsDesseUsuario as $idiom)
                                 <div class="flex flex-col">
                                     <a href="/edit/idiom/{{$idiom->id}}" class="text-white py-3 text-center hover:bg-gray-200" style="background-color: #00d37f;">
-                                        <div class="flex justify-center font-bold">
-                                            <span>
+                                        <div class="flex flex-col justify-center font-bold">
+                                            <div class='w-1/3'>
                                                 {{$idiom->expressao_pt}}
-                                            </span>
-                                            <span>
-                                                &nbsp;
-                                                <img src="http://localhost:8000/doubleArrow.svg" id="arrow" alt="É equivalente a" width="50" height="50" class="mx-3">
-                                                &nbsp;
-                                            </span>
-                                            <span>
+                                            </div>
+                                            <div class='my-5'>
+                                                pode equivaler a:
+                                            </div>
+                                            <div class='w-1/3'>
                                                 {{$idiom->expressao_en}}
-                                            </span>
+                                            </div>
                                         </div>
                                     </a>
                                 </div>

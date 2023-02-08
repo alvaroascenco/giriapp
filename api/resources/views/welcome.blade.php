@@ -16,12 +16,12 @@
       </div>
 
       <!-- Versão -->
-      <div class="lg:flex w-full text-blue-600 py-10 h-full text-center">
+      <div class="lg:flex w-full py-10 h-full text-center text-blue-600">
         <div class="mx-auto w-100 px-5 pb-10 lg:w-2/4">
           <div class='md:text-6xl text-5xl mb-4 font-bold'>Versão 0.1</div>
-          <div class="text-lg leading-8 lg:px-20">
+          <div class="text-lg leading-8 lg:px-20 text-black  ">
             A GiriAPI está no ar! Estamos orgulhosos em anunciar a beta aberta do nosso querido dicionário de expressões
-            regionais e idiomáticas. <a href="/sobre" class="text-black hover:underline">Saiba mais sobre o projeto</a>
+            regionais e idiomáticas. <a href="/sobre" class="text-blue-600  hover:underline">Saiba mais sobre o projeto</a>
           </div>
         </div>
         <div class="mx-auto w-100 px-5 pt-4 lg:w-2/4">
