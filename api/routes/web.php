@@ -3,6 +3,7 @@
 use Illuminate\Support\Facades\Route;
 use \App\Http\Controllers\GuestController;
 use \App\Http\Controllers\HomeController;
+use \App\Http\Controllers\DocsController;
 use \App\Http\Controllers\GiriaController;
 use \App\Http\Controllers\IdiomController;
 
@@ -21,6 +22,7 @@ use \App\Http\Controllers\IdiomController;
 */
 
 Route::get('/privacidade', [GuestController::class, 'privacidadePage']);
+Route::get('/api-docs', [DocsController::class, 'apiDocs']);
 Route::get('/sobre', [GuestController::class, 'sobrePage']);
 Route::get('/', [GuestController::class, 'index']);
 Auth::routes(['verify' => true]);
@@ -52,5 +54,5 @@ Route::group(['middleware' => ['auth', 'verified']], function(){
 
 
 Route::get('/token', function () {
-    return csrf_token(); 
+    return csrf_token();
 });

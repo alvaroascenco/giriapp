@@ -40,7 +40,7 @@
                             <div class="w-8 h-0.5 bg-gray-600"></div>
                             </div>
                             <div id="hamburger--content" class="hidden">
-                                <ul>    
+                                <ul>
                                     <li class="text-center py-3 border-b-2">
                                         <a href="{{ route('home') }}"
                                             class="no-underline text-gray-500 lg:text-2xl sm:text-sm hover:underline">Gírias catalogadas</a>
@@ -48,6 +48,10 @@
                                     <li class="text-center py-3 border-b-2">
                                         <a href="/create"
                                         class="no-underline text-gray-500 lg:text-2xl sm:text-sm hover:underline">Catalogar gíria</a>
+                                    </li>
+                                    <li class="text-center py-3 border-b-2">
+                                        <a href="/api-docs"
+                                        class="no-underline text-gray-500 lg:text-2xl sm:text-sm hover:underline">Documentação da API</a>
                                     </li>
                                     <li class="text-center py-3 border-b-2">
                                         <a href="{{ route('idioms') }}"
@@ -72,19 +76,21 @@
                                     </li>
                                 </ul>
                             </div>
-                            <div class="hidden md:flex md:justify-between">
+                            <div class="hidden md:flex md:text-xs lg:text-md  md:justify-between">
                                 <a href="{{ route('home') }}"
-                                class="no-underline text-gray-500 lg:text-lg sm:text-sm hover:underline">Gírias catalogadas</a>
+                                class="no-underline text-gray-500 lg:text-md sm:text-sm md:text-xs hover:underline">Gírias catalogadas</a>
                                 <a href="{{ route('idioms') }}"
-                                class="no-underline text-gray-500 lg:text-lg sm:text-sm hover:underline">Expressões em inglês catalogadas</a>
+                                class="no-underline text-gray-500 lg:text-md sm:text-sm md:text-xs hover:underline">Expressões em inglês catalogadas</a>
                                 <a href="/create"
-                                class="no-underline text-gray-500 lg:text-lg sm:text-sm hover:underline">Catalogar gíria</a>
+                                class="no-underline text-gray-500 lg:text-md sm:text-sm md:text-xs hover:underline">Catalogar gíria</a>
+                                <a href="/api-docs"
+                                class="no-underline text-gray-500 lg:text-md sm:text-sm md:text-xs hover:underline">Documentação da API</a>
                                 <a href="/create/idiom"
-                                class="no-underline text-gray-500 lg:text-lg sm:text-sm hover:underline">Catalogar expressão em inglês</a>
+                                class="no-underline text-gray-500 lg:text-md sm:text-xs md:text-xs hover:underline">Catalogar expressão em inglês</a>
                                 <a href="/user-options"
-                                class="no-underline text-gray-500 lg:text-lg sm:text-sm hover:underline">Opções do usuário</a>
+                                class="no-underline text-gray-500 lg:text-md sm:text-sm md:text-xs hover:underline">Opções do usuário</a>
                                 <a href="{{ route('logout') }}"
-                                class="no-underline text-gray-500 lg:text-lg sm:text-sm hover:underline"
+                                class="no-underline text-gray-500 lg:text-md sm:text-sm md:text-xs hover:underline"
                                 onclick="event.preventDefault();
                                         document.getElementById('logout-form').submit();">{{ __('Sair') }}</a>
                                 <form id="logout-form" action="{{ route('logout') }}" method="POST" class="hidden">
