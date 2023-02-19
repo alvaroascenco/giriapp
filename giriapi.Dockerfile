@@ -28,5 +28,8 @@ RUN mkdir -p /home/$user/.composer && \
 
 WORKDIR /var/www
 
-
 USER $user
+
+COPY ./container-scripts/giriapi-post-build.sh ~/giriapi-post-build.sh
+
+#CMD ~/giriapi-post-build.sh
