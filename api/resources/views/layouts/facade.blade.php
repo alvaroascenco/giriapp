@@ -29,8 +29,10 @@
                         @guest
                         <nav class="space-x-4 w-3/4 flex flex-col md:block text-blue-600 sm:text-sm text-right">
                             <a class="no-underline text-gray-500 mb-2 lg:text-2xl sm:text-sm hover:underline" href="{{ route('login') }}">{{ __('Entrar') }}</a>
+                            <a href="/api-docs"
+                            class="no-underline text-gray-500 mb-2 lg:text-2xl sm:text-2xl md:text-2xl hover:underline">Documentação da API</a>
                             @if (Route::has('register'))
-                                <a class="no-underline text-gray-500 lg:text-2xl sm:text-sm hover:underline" href="{{ route('register') }}">{{ __('Cadastre-se') }}</a>
+                                <a class="no-underline text-gray-500 lg:text-2xl sm:text-2xl hover:underline" href="{{ route('register') }}">{{ __('Cadastre-se') }}</a>
                             @endif
                         @else
                         <nav class="space-x-4 w-3/4 text-blue-600 sm:text-sm">

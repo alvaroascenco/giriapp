@@ -11,7 +11,7 @@ class IdiomController extends Controller
 {
 
     public function __construct(){
-        $this->middleware(['auth', 'verified']);
+        // $this->middleware(['auth', 'verified']);
     }
 
     public function idiomCreationForm(){
@@ -19,14 +19,14 @@ class IdiomController extends Controller
     }
 
     public function createIdiom(IdiomRequest $request){
-        
+
         $idiom = new Idiom;
-        $idiom->criadoPor = Auth::user()->id; 
+        $idiom->criadoPor = Auth::user()->id;
         $idiom->expressao_pt = $request->expressao_pt;
         $idiom->expressao_en = $request->expressao_en;
 
-        
-        
+
+
        if($idiom->save()){
            return redirect('/idioms');
        };
@@ -56,7 +56,7 @@ class IdiomController extends Controller
     public function filterIdioms(string $term): Array{
 
         $idioms = Idiom::where("expressao_pt", 'like', "%$term%")->orWhere("expressao_en", 'like', "%$term%")->get();
-        
+
         $data = [];
         foreach($idioms  as $idiom){
             $data[] = [
@@ -66,9 +66,9 @@ class IdiomController extends Controller
         }
 
         $res = [];
-        $res['idioms'] = $idioms;
+        $res['idioms'] = $data;
         $res['isFinishedIdioms'] = true;
-        
+
         return $res;
     }
 
@@ -88,6 +88,6 @@ class IdiomController extends Controller
 
         if($idiom->delete()){
             return redirect("/idioms");
-        } 
+        }
     }
 }

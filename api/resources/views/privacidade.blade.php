@@ -8,7 +8,7 @@
             A sua privacidade é importante para nós.
             É política do GiriAPI respeitar a sua privacidade em relação a qualquer informação sua que possamos coletar no site <a href="/" class="text-blue-500">GiriAPI</a>,
             e outros sites que possuímos e operamos.
-        </p> 
+        </p>
         <p class="mb-2">
             Solicitamos informações pessoais apenas quando realmente precisamos delas para lhe fornecer um serviço.
             Fazemo-lo por meios justos e legais, com o seu conhecimento e consentimento. Também informamos por que estamos coletando e como será usado.
@@ -16,7 +16,7 @@
             Quando armazenamos dados, protegemos dentro de meios comercialmente aceitáveis ​​para evitar perdas e roubos, bem como acesso, divulgação, cópia, uso ou modificação não autorizados.
             Não compartilhamos informações de identificação pessoal publicamente ou com terceiros, exceto quando exigido por lei.
         </p>
-        
+
         <p class="mb-5">
             O nosso site pode ter links para sites externos que não são operados por nós.
             Esteja ciente de que não temos controle sobre o conteúdo e práticas desses sites e não podemos aceitar responsabilidade por suas respectivas políticas de privacidade.
@@ -69,7 +69,7 @@
         </p>
         <hr class='mb-5'>
         <h2 class="text-xl font-bold md:text-3xl mb-2 text-center">Mais informações</h2>
-O GiriAPI pode revisar os termos de uso e a política de privacidade do ecossistema (leia-se site e APIs) a qualquer momento, sem aviso prévio. Ao usar este site, você concorda em ficar vinculado à versão atual desses termos de uso. Todos os termos descritos aqui também são validos para todos os componentes do ecossistema (GiriAPP e GiriAPI)
+O GiriAPI pode revisar os termos de uso e a política de privacidade do ecossistema (leia-se site e APIs) a qualquer momento, sem aviso prévio. Ao usar este site, você concorda em ficar vinculado à versão atual desses termos de uso.
        <h3 class="text-center text-2xl my-5">Esta política é efetiva a partir de 24 setembro 2022 11:47</h3>
     </div>
 </section>

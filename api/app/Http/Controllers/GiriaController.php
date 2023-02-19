@@ -12,7 +12,7 @@ use Auth;
 class GiriaController extends Controller
 {
     public function __construct(){
-        $this->middleware(['auth', 'verified']);
+        // $this->middleware(['auth', 'verified']);
     }
 
     public function treatGiriaFields($giria){
@@ -30,7 +30,7 @@ class GiriaController extends Controller
         foreach($girias as $giria){
             $this->treatGiriaFields($giria);
         }
-        
+
         $res = [];
         $res['girias'] = $girias;
         $res['isFinishedGirias'] = count($girias) < 18;
@@ -49,7 +49,7 @@ class GiriaController extends Controller
     public function filterGirias($str){
 
         //fetching filtered girias info on database
-        $girias = Giria::where('nome', 'like', "$str%")->get();
+        $girias = Giria::where('nome', 'like', "%$str%")->get();
         foreach($girias as $giria){
             $this->treatGiriaFields($giria);
         }
@@ -87,7 +87,7 @@ class GiriaController extends Controller
         }
 
         return view('create');
-        
+
     }
 
     public function editGiria(Request $request, $giriaId){
@@ -117,7 +117,7 @@ class GiriaController extends Controller
         if($giria->save()){
             return redirect('/home');
         }
-        
+
         return editGiria($request, $giriaId);
     }
 
@@ -128,7 +128,7 @@ class GiriaController extends Controller
             return app('App\Http\Controllers\HomeController')->index();
         } else {
             return view('create');
-        }   
+        }
     }
 
 }
