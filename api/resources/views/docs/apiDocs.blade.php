@@ -19,6 +19,7 @@
                 <div class="my-5 font-bold text-lg">Corpo da resposta:</div>
                 <div class="my-5 bg-gray-200 py-5 px-3 w-full">
                     <pre class="prettyprint">
+    <xmp class="whitespace-pre-wrap" style="font-size: 1rem; overflow: auto;">
     {
         "girias": [
             {
@@ -59,6 +60,7 @@
 
         "isFinishedGirias": true
     }
+    </xmp>
                     </pre>
                 </div>
             </div>
@@ -79,6 +81,7 @@
                 <div class="my-5 font-bold text-lg">Corpo da resposta:</div>
                 <div class="my-5 bg-gray-200 py-5 px-3 w-full">
                     <pre class="prettyprint">
+    <xmp class="whitespace-pre-wrap" style="font-size: 1rem; overflow: auto;">
     {
         "girias": [
             {
@@ -119,6 +122,7 @@
 
         "isFinishedGirias": true
     }
+</xmp>
                     </pre>
                 </div>
             </div>
@@ -138,6 +142,7 @@
                 <div class="my-5 font-bold text-lg">Corpo da resposta:</div>
                 <div class="my-5 bg-gray-200 py-5 px-3 w-full">
                     <pre class="prettyprint">
+    <xmp class="whitespace-pre-wrap" style="font-size: 1rem; overflow: auto;">
     {
         "id": 1,
 
@@ -171,6 +176,7 @@
 
         "updated_at": "2023-02-02T07:58:37.000000Z"
     }
+    </xmp>
                     </pre>
                 </div>
             </div>
@@ -190,6 +196,7 @@
                 <div class="my-5 font-bold text-lg">Corpo da resposta:</div>
                 <div class="my-5 bg-gray-200 py-5 px-3 w-full">
                     <pre class="prettyprint">
+    <xmp class="whitespace-pre-wrap" style="font-size: 1rem; overflow: auto;">
     {
         "idioms": [
             {
@@ -200,6 +207,7 @@
         ],
         isFinishedIdioms: false
     }
+    </xmp>
                     </pre>
                 </div>
             </div>
@@ -219,6 +227,7 @@
                 <div class="my-5 font-bold text-lg">Corpo da resposta:</div>
                 <div class="my-5 bg-gray-200 py-5 px-3 w-full pt-2 whitespace-pre-wrap">
                     <pre class="prettyprint truncate whitespace-pre-wrap" style="whitespace: pre-wrap !important;">
+    <xmp class="whitespace-pre-wrap" style="font-size: 1rem; overflow: auto;">
     {
         "idioms": [
             {
@@ -229,6 +238,7 @@
         ],
         isFinishedIdioms: false
     }
+    </xmp>
                     </pre>
                 </div>
             </div>
