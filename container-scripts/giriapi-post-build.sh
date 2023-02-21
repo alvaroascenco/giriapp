@@ -1,9 +1,11 @@
-#!/usr/bin/env bash
+#!/bin/bash
 
-FILE="/var/www/composer.json"
+cd /var/www
 
-until test -f "$FILE";
+#only migrate after db is up
+while [[ $(nmap -p 3306 db | grep open) == '' ]]
 do
-    echo "Waiting for volume to mount"
+    sleep 2
 done
-composer install
+
+php artisan migrate

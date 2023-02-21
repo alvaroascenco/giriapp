@@ -13,8 +13,8 @@ services:
     working_dir: /var/www
     depends_on:
       - db
-    volumes:
-      - ./api:/var/www
+    #volumes:
+     # - ./api:/var/www
     networks:
       - giriapi
   db:

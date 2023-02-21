@@ -11,7 +11,9 @@ RUN apt-get update && apt-get install -y \
     libonig-dev \
     libxml2-dev \
     zip \
-    unzip
+    unzip \
+    sudo \
+    nmap
 
 # Clear cache
 RUN apt-get clean && rm -rf /var/lib/apt/lists/*
@@ -26,10 +28,23 @@ RUN useradd -G www-data,root -u $uid -d /home/$user $user
 RUN mkdir -p /home/$user/.composer && \
     chown -R $user:$user /home/$user
 
+COPY ./api /var/www
+
+COPY ./container-scripts/giriapi-post-build.sh /tmp
+
+RUN chown -R $user:$user /var/www && \
+    chown  $user:$user /tmp/giriapi-post-build.sh && \
+    chmod 700 /tmp/giriapi-post-build.sh
+
+
 WORKDIR /var/www
 
 USER $user
 
-COPY ./container-scripts/giriapi-post-build.sh ~/giriapi-post-build.sh
+RUN composer install && \
+    composer update && \
+    php artisan config:clear && \
+    php artisan cache:clear && \
+    php artisan key:generate
 
-#CMD ~/giriapi-post-build.sh
+CMD /tmp/giriapi-post-build.sh && docker-php-entrypoint php-fpm
