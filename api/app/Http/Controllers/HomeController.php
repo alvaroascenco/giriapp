@@ -56,21 +56,22 @@ class HomeController extends Controller
 
     public function resetUserPasswordFromOptionsPage(){
         $currentUserEmail = Auth::user()->email; 
-
+        
         $status = Password::sendResetLink(
             ['email' => $currentUserEmail]
         );
-
+        
+        // dd($currentUserEmail);
         return $status === Password::RESET_LINK_SENT
-            ? back()->with(['status' => __($status)])
-            : back()->withErrors(['email' => __($status)]);
+        ? back()->with(['status' => __($status)])
+        : back()->withErrors(['email' => __($status)]);
+             
     }
 
     public function alterUser(Request $request){
         $currentUserId = Auth::user()->id;       
         $currentUserObj = User::findOrFail($currentUserId);
         $currentUserObj->name = $request->name;
-        $currentUserObj->email = $request->email;
 
         $updateStatus = $currentUserObj->save(); 
 

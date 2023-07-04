@@ -94,7 +94,7 @@ class GiriaController extends Controller
         $giriaToEdit = Giria::findOrFail($giriaId);
         $giriaToEdit->local = explode('/', $giriaToEdit->local);
         $giriaToEdit->significados = strpos($giriaToEdit->significados, ';*') > 0 ?
-            explode(';*', substr($giriaToEdit->significados, 0, -1)) :
+            explode(';*', $giriaToEdit->significados) :
             [$giriaToEdit->significados];
 
         return view('create', ['giriaToEdit' => $giriaToEdit]);

@@ -86,10 +86,10 @@
                         <input value="{{ old('url', isset($giriaToEdit) && !empty($giriaToEdit->videoId) ? 'https://www.youtube.com/watch?v='.$giriaToEdit->videoId : '') }}" name="url" class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" id="url" type="text">
                     </div>
                     @if ($errors->any())
-                        <div class="alert alert-danger mb-2">
+                        <div class="bg-red-500 text-white text-center mt-3 py-2">
                             <ul>
                                 @foreach ($errors->all() as $error)
-                                    <li>{{ $error }}</li>
+                                    <li class="my-3">{{ $error }}</li>
                                 @endforeach
                             </ul>
                         </div>

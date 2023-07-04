@@ -19,6 +19,9 @@
                             Expressão em português
                         </label>
                         <input class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" value="{{ old('expressao_pt', isset($idiomToEdit) ? $idiomToEdit->expressao_pt : '') }}" type="text" rows="4" cols="50" name="expressao_pt" class="rounded-lg text-center leading-6" placeholder="Expressão em português">
+                        <div class="py-5 font-bold">
+                            Equivale a:
+                        </div>
                         <label class="block text-gray-700 text-sm font-bold my-2" for="nome">
                             Expressão em inglês
                         </label>

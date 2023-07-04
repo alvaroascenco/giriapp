@@ -43,22 +43,6 @@
                         @enderror
                     </div>
 
-                    <div class="flex flex-wrap">
-                        <label for="email" class="block text-gray-700 text-sm font-bold mb-2 sm:mb-4">
-                            {{ __('E-Mail Address') }}:
-                        </label>
-
-                        <input id="email" type="email"
-                            class="form-input w-full @error('email') border-red-500 @enderror" name="email"
-                            value="{{ $userData->email }}" required autocomplete="email">
-
-                        @error('email')
-                        <p class="text-red-500 text-xs italic mt-4">
-                            {{ $message }}
-                        </p>
-                        @enderror
-                    </div>
-
                     <div class="flex flex-wrap justify-around">
                         <button type="submit"
                             class="lg:w-1/4 w-full lg:mb-0 mb-5 select-none font-bold p-1 rounded-lg text-base leading-normal no-underline text-gray-100 bg-blue-500 hover:bg-blue-700">
@@ -71,7 +55,7 @@
                         </button>
 
                         <a href="/password/reset-from-user-options" class="w-full text-xs text-center my-6 sm:text-sm sm:my-8 text-blue-500 hover:text-blue-700 hover:underline">
-                            Redefinir senha
+                            Enviar e-mail para redefinir senha
                         </a>
                     </div>
                     <a href="/remover-conta"

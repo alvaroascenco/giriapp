@@ -29,4 +29,11 @@ class IdiomRequest extends FormRequest
             'expressao_en' => 'required|max:250|regex:/^[A-Za-z\'\-\,\.\(\)\s]{2,}$/',
         ];
     }
+
+    public function messages(): array{
+        return [
+            'expressao_pt.regex' => "O campo de expressão em português só pode conter letras, hífens, vírgulas e pontos",
+            'expressao_en.regex' => 'O campo de expressão em inglês só pode conter letras, hífens, vírgulas e pontos'
+        ];
+    }
 }
