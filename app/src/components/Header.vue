@@ -48,6 +48,11 @@
               >Expressões Idiomáticas (inglês)</router-link
             >
           </li>
+          <li class="nav-item mx-2">
+            <a class="nav-link text-white fs-5 efeitoUnderline" :href="`http://localhost:8000`" target="_blank" rel="noopener noreferrer">
+              Cadastre suas gírias
+            </a>
+          </li>
         </ul>
         <form class="d-flex">
           <input

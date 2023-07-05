@@ -3,10 +3,11 @@
     <div class="row w-90 d-flex justify-content-center">
       <div class="row d-flex justify-content-center" ref="scrollComponentIdioms">
         <div
-          class="col-xxl-3 col-lg-4 col-md-6 col-xs-12"
+          class="col-xxl-4 col-lg-6 col-md-6 col-xs-12"
           v-for="(idiom, index) in $store.state.idioms"
           :key="index"
         >
+        <!-- TODO: FIGURE OUT A WAY TO PROPERLY RESIZE FONTS ON PAGE RERENDER -->
           <CardIdiom
             :idiom="idiom"
             :index="index"
