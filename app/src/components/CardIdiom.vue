@@ -22,7 +22,8 @@ export default {
   name: "CardIdiom",
   props: {
     idiom: Object,
-    index: Number
+    index: Number,
+    shouldResize: Boolean
   },
   data(){
     return {
@@ -44,16 +45,22 @@ export default {
       enFontsize = enFontsize.slice(0, -2)
       ptFontsize = ptFontsize.slice(0, -2)
       while(en.clientHeight < en.scrollHeight){
-        enFontsize--
+        enFontsize = enFontsize - 2
         document.getElementById(`en${this.index}`).style.fontSize = `${enFontsize}px`
       }
       while(pt.clientHeight < pt.scrollHeight){
-        ptFontsize--
+        ptFontsize = ptFontsize - 2
         document.getElementById(`pt${this.index}`).style.fontSize = `${ptFontsize}px`
       }
       this.isResized = true
     }
   },
+  watch: {
+    shouldResize(){
+      console.log('aa')
+      this.resizeFonts()
+    }
+  }
 };
 </script>
 <style scoped>

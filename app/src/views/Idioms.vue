@@ -4,13 +4,14 @@
       <div class="row d-flex justify-content-center" ref="scrollComponentIdioms">
         <div
           class="col-xxl-4 col-lg-6 col-md-6 col-xs-12"
-          v-for="(idiom, index) in $store.state.idioms"
+          v-for="(idiom, index) in idioms"
           :key="index"
         >
         <!-- TODO: FIGURE OUT A WAY TO PROPERLY RESIZE FONTS ON PAGE RERENDER -->
           <CardIdiom
             :idiom="idiom"
             :index="index"
+            :shouldResize="!allAreResized"
           />
         </div>
       </div>
@@ -28,9 +29,13 @@
 <script>
 import CardIdiom from "@/components/CardIdiom.vue";
 import infScroll from "@/helpers/infScroll.js"
+import {mapState} from 'vuex';
 
 export default {
   name: "Idioms",
+  computed: {
+    ...mapState(['idioms'])
+  },
   components: {
     CardIdiom,
   },
@@ -40,7 +45,8 @@ export default {
       page: 0,
       defaultDispatchFunction: "fetchAllIdioms",
       objectType: 'idioms',
-      defaultFinishedFlagInStore: "isFinishedIdioms"
+      defaultFinishedFlagInStore: "isFinishedIdioms",
+      allAreResized: true
     };
   },
 
@@ -70,6 +76,12 @@ export default {
       // }
     // },
   },
+  watch:{
+    idioms(){
+      this.allAreResized = !this.allAreResized
+      console.log(this.allAreResized)
+    }
+  }
 };
 </script>
 <style>
